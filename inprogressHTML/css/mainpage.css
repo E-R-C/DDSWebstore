@@ -1,0 +1,122 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+header {
+  color : black;
+  font-size: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+
+  border-bottom: solid grey;
+  margin: 20px;
+
+}
+
+body {
+  font-weight: bold;
+  height: 10em;
+
+  margin: 3em;
+  /* font-size: 20px; */
+}
+
+footer {
+  text-align: center;
+  border-top: solid black;
+  height: 3em;
+  background-color: white;
+  
+}
+
+.main {
+  
+
+}
+
+
+
+input[type="submit"] {
+    margin-left: -50px;
+    height: 20px;
+    font-family: FontAwesome;
+    width: 50px;
+}
+
+
+.search-logo {
+
+}
+
+.search-bar {
+  height: 5em;
+
+  border-top: solid black;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+table {
+  border: 1px solid black;
+  padding: 3em;
+  margin-left: 1em;
+}
+
+.jumbotron {
+  margin-top: 2em;
+
+}
+
+tr {
+  border: 1px solid grey;
+  margin: 3em;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+   float: left;
+   width: 45%;
+   padding: 0 15px 0 15px;
+   padding-bottom: 6em;
+   margin-bottom: 1em;
+   margin-right: 2.5%;
+   margin-left: 2.5%;
+   border: solid black;
+   
+}
+
+.results {
+  padding-right: 2em;
+  padding-left: 2em;
+  margin-right: 3em;
+  margin-left: 2em;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  height: 100%;
+  overflow-y: scroll;
+
+  background-color: lightgrey; 
+
+}
+/* Clear floats after the columns */
+.row:after {
+   content: "";
+   display: table;
+   margin: 5px;
+   clear: both;
+} 
+#search {
+  /* text-align: right; */
+}
