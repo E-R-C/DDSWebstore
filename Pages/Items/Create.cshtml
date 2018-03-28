@@ -1,0 +1,66 @@
+@page
+@model DDSWebstore.Pages.Items.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Item</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Item.name" class="control-label"></label>
+                <input asp-for="Item.name" class="form-control" />
+                <span asp-validation-for="Item.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.description" class="control-label"></label>
+                <input asp-for="Item.description" class="form-control" />
+                <span asp-validation-for="Item.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.location" class="control-label"></label>
+                <input asp-for="Item.location" class="form-control" />
+                <span asp-validation-for="Item.location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.status" class="control-label"></label>
+                <input asp-for="Item.status" class="form-control" />
+                <span asp-validation-for="Item.status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Item.available" /> @Html.DisplayNameFor(model => model.available))
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.orderID" class="control-label"></label>
+                <input asp-for="Item.orderID" class="form-control" />
+                <span asp-validation-for="Item.orderID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.price" class="control-label"></label>
+                <input asp-for="Item.price" class="form-control" />
+                <span asp-validation-for="Item.price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

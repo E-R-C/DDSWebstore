@@ -1,0 +1,61 @@
+@page
+@model DDSWebstore.Pages.Items.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.available)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.available)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.orderID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.orderID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Item.price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Item.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

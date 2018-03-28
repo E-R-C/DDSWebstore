@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using DDSWebstore.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace DDSWebstore
 {
     public class Startup
@@ -23,8 +24,11 @@ namespace DDSWebstore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ItemContext>(options =>
-            options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
+            // services.AddEntityFrameworkSqlite();
+            services.AddDbContext<MyDBContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("MyDBContext")));
+                // options.UseSqlite($"Data Source={basepath}/ItemsAndOrders.db"));
+
             services.AddMvc();
         }
 
