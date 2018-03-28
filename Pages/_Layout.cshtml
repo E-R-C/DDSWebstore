@@ -26,13 +26,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">DDSWebstore</a>
+                 <a asp-page="/MainPage" class="navbar-brand">DDSWebstore</a>
+                <!-- <a class="navbar-brand" rel="home" href="#" title="DDSWebstore">
+                    <img style="max-height:2em;margin-top: -7px;" src="http://assets.inarkansas.com/64852/arkansas-department-of-human-services-logo-536.jpg">
+                </a> -->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
+                    <li><a asp-page="/MainPage">Home</a></li>
                     <li><a asp-page="/About">About</a></li>
                     <li><a asp-page="/Contact">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right"><
+                    
+                    <li><form class="navbar-form">
+                        <div class="form-group" style="display:inline;">
+                            <div class="input-group">
+                                <input class="form-control" type="text">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                            </div>
+                        </div>
+                    </form></li>
+                    <li>
+                        <p class="navbar-btn">
+                            <a href="#" class="btn"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+                        </p>
+                    </li>
                 </ul>
             </div>
         </div>

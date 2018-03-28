@@ -18,7 +18,7 @@ namespace DDSWebstore.Pages.Orders
             _context = context;
         }
 
-        public Order Order { get; set; }
+        public DDSWebstore.Models.Order Order { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
