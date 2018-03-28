@@ -14,7 +14,7 @@ namespace DDSWebstore.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    available = table.Column<bool>(nullable: false),
+                    available = table.Column<int>(nullable: false),
                     description = table.Column<string>(nullable: true),
                     location = table.Column<string>(nullable: true),
                     name = table.Column<string>(nullable: true),

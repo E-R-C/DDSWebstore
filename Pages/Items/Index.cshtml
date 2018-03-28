@@ -34,6 +34,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Item[0].price)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Item[0].imageUrl)
+                </th>
             <th></th>
         </tr>
     </thead>
@@ -60,6 +63,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imageUrl)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

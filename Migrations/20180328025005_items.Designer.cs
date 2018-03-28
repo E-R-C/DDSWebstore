@@ -10,9 +10,10 @@ using System;
 namespace DDSWebstore.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    partial class MyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180328025005_items")]
+    partial class items
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +27,6 @@ namespace DDSWebstore.Migrations
                     b.Property<int>("available");
 
                     b.Property<string>("description");
-
-                    b.Property<string>("imageUrl");
 
                     b.Property<string>("location");
 

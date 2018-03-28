@@ -10,8 +10,8 @@ using System;
 namespace DDSWebstore.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20180328021224_Added")]
-    partial class Added
+    [Migration("20180328025057_Order")]
+    partial class Order
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace DDSWebstore.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("available");
+                    b.Property<int>("available");
 
                     b.Property<string>("description");
 

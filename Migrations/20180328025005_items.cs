@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DDSWebstore.Migrations
 {
-    public partial class Added : Migration
+    public partial class items : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

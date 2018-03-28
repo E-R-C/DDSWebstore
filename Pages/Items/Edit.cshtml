@@ -35,11 +35,9 @@
                 <span asp-validation-for="Item.status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Item.available" /> @Html.DisplayNameFor(model => model.available)
-                    </label>
-                </div>
+                <label asp-for="Item.available" class="control-label"></label>
+                <input asp-for="Item.available" class="form-control" />
+                <span asp-validation-for="Item.available" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Item.orderID" class="control-label"></label>
@@ -50,6 +48,11 @@
                 <label asp-for="Item.price" class="control-label"></label>
                 <input asp-for="Item.price" class="form-control" />
                 <span asp-validation-for="Item.price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.imageUrl" class="control-label"></label>
+                <input asp-for="Item.imageUrl" class="form-control" />
+                <span asp-validation-for="Item.imageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
