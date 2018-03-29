@@ -20,6 +20,7 @@
     $('.item-image').on('click', function () {
         price = $(this).parent().children('.caption').children('.row').find('.price').text() //.parent().prev().find('.price').text();
         productTitle = $(this).parent().children('.caption').children('.product-title').text() //.$(this).parent().parent().prev().text();
+        productDesc = $(this).parent().children('.caption').children('.product-desc').text()
         //console.log($(this).parent().parent().prev());
         img = $(this).attr('src') //parent().parent().parent().prev().attr('src');
 
@@ -28,6 +29,7 @@
         modalContent.find('.modal-image').attr('src', img);
         modalContent.find('.modal-item-price').text('Price:' +  price);
         modalContent.find('.modal-item-title').text(productTitle);
+        modalContent.find('.modal-item-desc').text(productDesc);
 
         modal.css("display", "block");
     });

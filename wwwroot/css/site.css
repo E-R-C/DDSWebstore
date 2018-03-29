@@ -221,3 +221,7 @@ body {
         cursor: pointer;
     }
 
+.product-desc {
+    display: none;
+}
+
