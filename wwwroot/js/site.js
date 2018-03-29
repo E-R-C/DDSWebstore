@@ -17,11 +17,11 @@
 
     var modal = $('#myModal');
 
-    $('.item-button').on('click', function () {
-        price = $(this).parent().prev().find('.price').text();
-        productTitle = $(this).parent().parent().prev().text();
-        console.log($(this).parent().parent().prev());
-        img = $(this).parent().parent().parent().prev().attr('src');
+    $('.item-image').on('click', function () {
+        price = $(this).parent().children('.caption').children('.row').find('.price').text() //.parent().prev().find('.price').text();
+        productTitle = $(this).parent().children('.caption').children('.product-title').text() //.$(this).parent().parent().prev().text();
+        //console.log($(this).parent().parent().prev());
+        img = $(this).attr('src') //parent().parent().parent().prev().attr('src');
 
 
         modalContent = modal.find('.modal-content');

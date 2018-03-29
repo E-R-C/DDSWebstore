@@ -1,6 +1,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #eee;
 }
 
 
@@ -11,7 +12,14 @@ body {
     padding-right: 15px;
 }
 
+.jumbotron {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg");
+    background-size:cover;
+    color: #eee;
+    margin-top:2em;
 
+
+}
 
 /* Carousel */
 .carousel-caption p {
@@ -99,6 +107,10 @@ body {
     margin: 0 0 11px;
 }
 
+.item-image:hover {
+    cursor: pointer;
+}
+
 .categories {
     border-collapse: collapse;
     margin:0;
@@ -106,8 +118,21 @@ body {
     height:15em;
 }
 
+.categories tbody {
+    cursor: pointer;
+}
+
 .categories tbody tr:hover {
     background: #eee;
+  
+}
+
+.categories tbody tr label {
+    cursor: pointer;
+}
+
+.categories tbody tr input {
+    cursor: pointer;
 }
 
 .categories tr {
@@ -121,6 +146,8 @@ body {
 .categories input {
      margin-right:25%;
 }
+
+
 
 .categories th {
      text-align: center;
