@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
+
 <div class="container">
 <div class="row" style="padding-top:20px;padding-bottom:50px;">
     <div class="col-sm-6">
@@ -81,8 +82,37 @@
 <div class="container">
     <div class="row">
         
-        <div class="col-sm-3">
-        <table border="0" >
+        <div class="col-sm-3" style>
+            
+            <table class="categories">
+                <thead>
+                   
+                    <th>Item Categories</th>
+                
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                    <input type="checkbox" value="Category 1"/>
+                    <label for="subscribeNews">Category 1</label>
+                    </td>
+                </tr>
+               <tr>
+                    <td>
+                    <input type="checkbox" value="Category 2"/>
+                    <label for="subscribeNews">Category 2</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <input type="checkbox" value="Category 3"/>
+                    <label for="subscribeNews">Category 3</label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+           
+        <!-- <table border="0">
         <thead>
             <tr>
                 <th><h4>Items</h4></th>      
@@ -110,7 +140,7 @@
                     </div>
                 </td>           
             </tbody>
-        </table>
+        </table> -->
         </div>
     <div class="col-sm-9">
         <!--TODO: programatically generate table items-->

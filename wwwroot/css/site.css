@@ -98,3 +98,41 @@ body {
 {
     margin: 0 0 11px;
 }
+
+.categories {
+    border-collapse: collapse;
+    margin:0;
+    width:100%;
+    height:15em;
+}
+
+.categories tbody tr:hover {
+    background: #eee;
+}
+
+.categories tr {
+    border:1px solid #eee;
+}
+
+.categories thead {
+    background: azure;
+    
+}
+.categories input {
+     margin-right:25%;
+}
+
+.categories th {
+     text-align: center;
+}
+.categories tbody tr {
+    margin:20px;
+    
+}
+.categories td {
+    border: 0px solid #eee;
+    text-align: center;
+}
+.highlight_row {
+    background: #eee;
+}
