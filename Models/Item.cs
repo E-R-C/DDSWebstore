@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DDSWebstore.Models
 {
@@ -11,6 +13,8 @@ namespace DDSWebstore.Models
     public string status{get; set;}
     public int available{get; set;}
     public int orderID{get; set;}
+    
+    [DataType(DataType.Currency)]
     public float price{get; set;}
 
     public string imageUrl{get; set;}
