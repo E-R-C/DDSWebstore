@@ -1,0 +1,82 @@
+@page
+@model DDSWebstore.Pages.Cart.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="cart.css"/>
+    </head>
+    <body>
+		<div class="row" style="margin-top:3em;">
+			<div class="col-md-6">
+				<table class="table table-striped table-bordered" >
+					<tr>
+						<th>Item</th>
+						<th>Quanitity</th> 
+						<th>Price</th>
+					</tr>
+					<tr>
+						<td>Item 1</td>
+						<td>2</td>
+						<td>$4.00</td>
+						<td>Remove</td>
+					</tr>
+					<tr>
+						<td>Item 2</td>
+						<td>1</td>
+						<td>$10.00</td>
+						<td>Remove</td>
+					</tr>
+					<tr>
+						<td>Item 3</td>
+						<td>1</td>
+						<td>$2.00</td>
+						<td>Remove</td>
+					</tr>
+					<tr>
+						<td>Item 4</td>
+						<td>5</td>
+						<td>$25.00</td>
+						<td>Remove</td>
+					</tr>
+					<tr>
+						<td>Subtotal</td>
+						<td>9</td>
+						<td>$41.00</td>
+					</tr>
+					<tr>
+						<td>Shipping</td>
+						<td>9</td>
+						<td>$??.00</td>
+					</tr>
+					<tr>
+						<td>Total</td>
+						<td>9</td>
+						<td>$??.00</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<form>
+				Shipping Address:<br>
+				<input type="text" name="address"><br>
+				City:<br>
+				<input type="text" name="city"><br>
+				State:<br>
+				<input type="text" name="state"><br>
+				Zip Code:<br>
+				<input type="text" name="zip"><br>
+				<input type="input" class="form-control input-sm" placeholder="Extra Donation?">
+				<span class="input-group-btn">
+					<button class="btn btn-info btn-sm" type="button">
+					Add to Cart
+					</button>
+				</span>
+				</form>
+			</div>
+		</div>
+    </body>
+</html>
