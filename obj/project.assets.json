@@ -13123,28 +13123,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/anna/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\jkwee\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anna/databases/DDSWebstore/DDSWebstore.csproj",
+      "projectUniqueName": "C:\\Users\\jkwee\\Desktop\\MyProjects\\DDSWebstore\\DDSWebstore.csproj",
       "projectName": "DDSWebstore",
-      "projectPath": "/Users/anna/databases/DDSWebstore/DDSWebstore.csproj",
-      "packagesPath": "/Users/anna/.nuget/packages/",
-      "outputPath": "/Users/anna/databases/DDSWebstore/obj/",
+      "projectPath": "C:\\Users\\jkwee\\Desktop\\MyProjects\\DDSWebstore\\DDSWebstore.csproj",
+      "packagesPath": "C:\\Users\\jkwee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jkwee\\Desktop\\MyProjects\\DDSWebstore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/anna/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jkwee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

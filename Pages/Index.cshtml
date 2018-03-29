@@ -153,22 +153,21 @@
             </div>
         </div> -->
         <div id="products" class="row list-group">
-            <div class="item  col-xs-4 col-lg-4">
+            <div class="item col-xs-4 col-lg-4">
                 <div class="thumbnail">
-                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <img class="item-image" src="https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg" alt="" />
                     <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-                            Product title</h4>
-                        <p class="group inner list-group-item-text">
-                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <h4 class="product-title text-center">
+                            Product title
+                        </h4>
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
-                                <p class="lead">
-                                    $21.000</p>
+                                <p class="price">
+                                    $21.000
+                                </p>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                <a class="btn btn-success item-button">View</a>
                             </div>
                         </div>
                     </div>
@@ -288,4 +287,27 @@
     </div>
     </div>
     </div>
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <header class="modal-item-title"></header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <img class="modal-image" src="" />
+                </div>
+                <div class="col-md-4 modal-wrapper">
+                    <div>
+                        <p class="modal-item-price"></p>
+                    </div>
+                    <div>
+                        <a class="btn btn-success modal-cart-button" href="/Cart">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="modal-item-desc"></p>
+    </div>
+</div>
 
