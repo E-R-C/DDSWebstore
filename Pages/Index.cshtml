@@ -3,15 +3,14 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="col-md-12">
-<div class="row" style="padding:2em">
-    <div class="col-md-3">
+<div class="container">
+<div class="row" style="padding-top:20px;padding-bottom:50px;">
+    <div class="col-sm-6">
         <h1> About Us: </h1>
         <p> ajskdlfja kwelfja lwejfkalwjekf <br> ajsdkfljkas lf<br>
         ajskdl fjak sdlf <br> asjdkz fla jksdfl </p> <br> ajskdflajksdlfjaklwej fklaj w ekfljaw kelfjakwejfkalwejfk <br> asjkdlf.
         </div>
-        <div class="col-md-9">
+        <div class="col-sm-6">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -76,14 +75,13 @@
             </div>
         </div>
         </div>
-    </div>
 
 <div class="row">
 
-<div class="col-md-12">
+<div class="container">
     <div class="row">
         
-        <div class="col-md-3">
+        <div class="col-sm-3">
         <table border="0" >
         <thead>
             <tr>
@@ -114,40 +112,150 @@
             </tbody>
         </table>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            <div class="container">
-        <div class="row imagetiles">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+    <div class="col-sm-9">
+        <!--TODO: programatically generate table items-->
+        <!-- <div class="well well-sm">
+            <strong>Display</strong>
+            <div class="btn-group">
+                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+                </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                    class="glyphicon glyphicon-th"></span>Grid</a>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+        </div> -->
+        <div id="products" class="row list-group">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                <img src=https://i.ytimg.com/vi/SfLV8hD7zX4/maxresdefault.jpg class="img-responsive" style="padding-bottom: 3em">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-        </div>
-    <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
-    </div> -->
-    
-</div>
-</div>
-</div>
+    </div>
+        <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
+        </div> -->
+        
+    </div>
+    </div>
+    </div>
 
