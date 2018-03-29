@@ -1,7 +1,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background: #eee;
+    background: white;
 }
 
 
@@ -13,13 +13,28 @@ body {
 }
 
 .jumbotron {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg");
-    background-size:cover;
-    color: #eee;
+    /* background: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg") center center no-repeat; */
+    /* background-size:cover; */
+    background-size: cover;
     margin-top:2em;
-
-
+    color: white;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg");
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg"); */
+    /* background:  linear-gradient(#004092, #020202, transparent), url("../img/mountains.jpg") no-repeat center; 
+     */
+    /* background: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg"), linear-gradient(rgba(20,20,20, .5), rgba(20,20,20, .5)); */
 }
+/* .jumbotron container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(73,73,73,.4);
+} */
+
+
+
+
+
+
 
 /* Carousel */
 .carousel-caption p {
@@ -154,12 +169,14 @@ body {
 }
 .categories tbody tr {
     margin:20px;
+    background:white;
     
 }
 .categories td {
     border: 0px solid #eee;
     text-align: center;
 }
+
 .highlight_row {
     background: #eee;
 }
