@@ -13,7 +13,7 @@ body {
 }
 
 .jumbotron {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Gfp-arkansas-mount-magazine-state-park-the-ozark-valley.jpg");
+    background-image: url("../images/headerBackground.jpg");
     background-size:cover;
     color: #eee;
     margin-top:2em;
