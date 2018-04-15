@@ -129,15 +129,17 @@
                                 <p class="price">
                                     @Html.DisplayFor(modelItem => item.price)
                                 </p>
+                                <p class="id">
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            }  
 
-            }
-            <p>@ViewBag.message</p>
-            
+        <p>@ViewBag.message</p>
     </div>
         <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
         </div> -->
@@ -169,11 +171,11 @@
                     <div>
                         <p class="modal-item-desc"></p>
                     </div>
+                    <div >
+                        <a class="btn btn-success modal-cart-button">Add to Cart</a>
+                    </div>
                     <div>
-                        <a class="btn btn-success modal-cart-button" asp-controller="Cookies"
-                        asp-action="writeCookie" method="post">Add to Cart</a>
-                        <!-- asp-controller="Cookies"
-                        asp-action="writeCookie" method="post" -->
+                        <p class="modal-item-id"></p>
                     </div>
                 </div>
             </div>

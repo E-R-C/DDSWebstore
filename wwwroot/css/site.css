@@ -262,5 +262,15 @@ body {
     justify-content: center;
 }
 
+.id {
+    display: none;
+}
+
+.modal-item-id {
+    display: none;
+}
+
+
+
 
 
