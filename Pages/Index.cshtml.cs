@@ -20,9 +20,17 @@ namespace DDSWebstore.Pages
 
         public IList<Item> Item { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string search)
         {
-            Item = await _context.Item.ToListAsync();
+            var items = from i in _context.Item
+                        select i;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                items = items.Where(s => s.name.Contains(search) || s.description.Contains(search));
+            }
+
+            Item = await items.ToListAsync();
         }
     }
 }
