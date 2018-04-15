@@ -197,6 +197,10 @@ body {
     margin: 15% auto;
 }
 
+.modal-subcontent {
+    margin: 0 15%;
+}
+
 .close {
     color: #aaa;
     float: right;
@@ -205,18 +209,17 @@ body {
 }
 
 .modal-item-title {
-    text-align: center;
+    text-align: left;
     font-size: 5vh;
 }
 
 .modal-item-price {
     font-size: 3vh; 
-    text-align: right;
+    text-align: left;
 }
 
 .modal-cart-button {
-    position: absolute;
-    right: 2em;
+    width: 80%;
 }
 
 .modal-wrapper {
@@ -227,6 +230,9 @@ body {
 .modal-image {
     max-width: 100%;
     padding: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -240,4 +246,21 @@ body {
 .product-desc {
     display: none;
 }
+
+.search-container {
+    float: right;
+    width: inherit;
+    padding: 0% 5%;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.list-inline {
+    display: flex;
+    justify-content: center;
+}
+
+
 
