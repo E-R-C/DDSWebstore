@@ -38,6 +38,12 @@
         modal.css("display", "none");
     });
 
+    $('.alt-image').on('click', function () {
+        console.log("image clicked");
+        img = $(this).children('img').attr('src');
+        modal.find('.modal-content').find('.modal-image').attr('src', img);
+    });
+
 
     window.onclick = function (event) {
         if (event.target == document.getElementById('myModal')) {
