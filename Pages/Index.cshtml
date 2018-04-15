@@ -136,6 +136,7 @@
             </div>
 
             }
+            <p>@ViewBag.message</p>
             
     </div>
         <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
@@ -169,7 +170,10 @@
                         <p class="modal-item-desc"></p>
                     </div>
                     <div>
-                        <a class="btn btn-success modal-cart-button" href="/Cart">Add to Cart</a>
+                        <a class="btn btn-success modal-cart-button" asp-controller="Cookies"
+                        asp-action="writeCookie" method="post">Add to Cart</a>
+                        <!-- asp-controller="Cookies"
+                        asp-action="writeCookie" method="post" -->
                     </div>
                 </div>
             </div>
