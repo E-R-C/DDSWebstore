@@ -171,6 +171,8 @@ Cookies.set('ddsCookie', cookiesValue)
 
 $(document).ready(function () {
 
+    $('a').mouseup(function() { $(this).blur() })
+
     console.log("javascript loaded");
     $('.categories tr').click(function (event) {
         if (event.target.type !== 'checkbox') {
@@ -180,9 +182,9 @@ $(document).ready(function () {
 
     $("input[type='checkbox']").change(function (e) {
         if ($(this).is(":checked")) {
-            $(this).closest('tr').addClass("highlight_row");
+            $(this).parent().addClass("highlight_row");
         } else {
-            $(this).closest('tr').removeClass("highlight_row");
+            $(this).parent().removeClass("highlight_row");
         }
     });
 
