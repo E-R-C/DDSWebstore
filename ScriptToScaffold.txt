@@ -1,0 +1,8 @@
+dotnet ef migrations add init
+dotnet aspnet-codegenerator razorpage -m Image -dc MyDBContext -udl -outDir Pages/Images --referenceScriptLibraries
+dotnet aspnet-codegenerator razorpage -m Order -dc MyDBContext -udl -outDir Pages/Orders --referenceScriptLibraries
+dotnet aspnet-codegenerator razorpage -m BoughtItem -dc MyDBContext -udl -outDir Pages/BoughtItems --referenceScriptLibraries
+dotnet aspnet-codegenerator razorpage -m Item -dc MyDBContext -udl -outDir Pages/Items --referenceScriptLibraries
+dotnet ef migrations add postScaffold
+dotnet ef database update
+
