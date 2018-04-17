@@ -201,7 +201,7 @@ $(document).ready(function () {
 
         modalContent = modal.find('.modal-content');
         modalContent.find('.modal-image').attr('src', img);
-        modalContent.find('.modal-item-price').text('Price:' +  price);
+        modalContent.find('.modal-item-price').text(price);
         modalContent.find('.modal-item-title').text(productTitle);
         modalContent.find('.modal-item-desc').text(productDesc);
         modalContent.find('.modal-item-id').text(id);
