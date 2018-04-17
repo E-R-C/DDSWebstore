@@ -19,6 +19,7 @@ namespace DDSWebstore.Pages
         }
 
         public IList<Item> Item { get;set; }
+        public IList<DDSWebstore.Models.Image> Image { get;set; }
 
         public async Task OnGetAsync(string search)
         {
@@ -27,10 +28,10 @@ namespace DDSWebstore.Pages
 
             if (!String.IsNullOrEmpty(search))
             {
-                items = items.Where(s => s.name.Contains(search) || s.description.Contains(search));
+                items = items.Where(s => s.Name.Contains(search) || s.Description.Contains(search));
             }
 
-            Item = await items.ToListAsync();
+            Item = await items.Include(i => i.Images).ToListAsync();
         }
     }
 }

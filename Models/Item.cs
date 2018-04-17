@@ -1,22 +1,24 @@
 using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DDSWebstore.Models
 {
   public class Item
   {
+    [Key]
     public int ID {get; set;}
-    public string name {get; set;}
-    public string description{get; set;}
-    public string location{get; set;}
-    public string status{get; set;}
-    public int available{get; set;}
-    public int orderID{get; set;}
+    public string Name {get; set;}
+    public string Description{get; set;}
+    public string Location{get; set;}
+    public int Quantity{get; set;}
     
     [DataType(DataType.Currency)]
-    public float price{get; set;}
+    public float Price{get; set;}
 
-    public string imageUrl{get; set;}
+    public virtual IList<DDSWebstore.Models.Image> Images { get; set; }
+
   }
 }

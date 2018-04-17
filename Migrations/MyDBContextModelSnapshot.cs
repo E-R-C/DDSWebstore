@@ -18,26 +18,72 @@ namespace DDSWebstore.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
+            modelBuilder.Entity("DDSWebstore.Models.BoughtItem", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("OrderID");
+
+                    b.Property<float>("Price");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("BoughtItem");
+                });
+
+            modelBuilder.Entity("DDSWebstore.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ItemID");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("DDSWebstore.Models.Image", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ImageURL");
+
+                    b.Property<int>("ItemID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ItemID");
+
+                    b.ToTable("Image");
+                });
+
             modelBuilder.Entity("DDSWebstore.Models.Item", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("available");
+                    b.Property<string>("Description");
 
-                    b.Property<string>("description");
+                    b.Property<string>("Location");
 
-                    b.Property<string>("imageUrl");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("location");
+                    b.Property<float>("Price");
 
-                    b.Property<string>("name");
-
-                    b.Property<int>("orderID");
-
-                    b.Property<float>("price");
-
-                    b.Property<string>("status");
+                    b.Property<int>("Quantity");
 
                     b.HasKey("ID");
 
@@ -60,6 +106,14 @@ namespace DDSWebstore.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("DDSWebstore.Models.Image", b =>
+                {
+                    b.HasOne("DDSWebstore.Models.Item", "Item")
+                        .WithMany("Images")
+                        .HasForeignKey("ItemID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

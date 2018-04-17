@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
 }
 
 <!-- <div class="container">
@@ -141,18 +141,19 @@
         </div> -->
         <div id="products" class="row list-group">
             @foreach (var item in Model.Item) {
+                <p> @(item.Images.LongCount()) </p>
                 <div class="item col-xs-4 col-lg-4">
                 <div class="thumbnail">
-                    <img class="item-image" src="@Html.DisplayFor(modelItem => item.imageUrl)" alt="" />
+                                <img class="item-image" src="@Html.DisplayFor(modelItem => item.Images.First().ImageURL)" alt="" />
                     <div class="caption">
                         <h4 class="product-title">
-                            @Html.DisplayFor(modelItem => item.name)
+                            @Html.DisplayFor(modelItem => item.Name)
                         </h4>
-                        <p class="product-desc">@Html.DisplayFor(modelItem => item.description)</p>
+                        <p class="product-desc">@Html.DisplayFor(modelItem => item.Description)</p>
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
                                 <p class="price">
-                                    @Html.DisplayFor(modelItem => item.price)
+                                    @Html.DisplayFor(modelItem => item.Price)
                                 </p>
                                 <p class="id">
                                     @Html.DisplayFor(modelItem => item.ID)

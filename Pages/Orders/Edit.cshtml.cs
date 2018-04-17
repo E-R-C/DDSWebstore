@@ -20,7 +20,7 @@ namespace DDSWebstore.Pages.Orders
         }
 
         [BindProperty]
-        public DDSWebstore.Models.Order Order { get; set; }
+        public Order Order { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

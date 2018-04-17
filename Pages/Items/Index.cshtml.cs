@@ -27,7 +27,7 @@ namespace DDSWebstore.Pages.Items
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                items = items.Where(s => s.name.Contains(searchString));
+                items = items.Where(s => s.Name.Contains(searchString));
             }
 
             Item = await items.ToListAsync();
