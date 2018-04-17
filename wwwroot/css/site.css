@@ -87,7 +87,12 @@ li p.navbar-btn {
 
 }
 
-
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: black;
+}
+.navbar-inverse .navbar-toggle:hover .icon-bar {
+    background-color: #eee;
+}
 
 .nav.navbar-nav li a:hover {
     color: rgb(219, 128, 0);
@@ -167,19 +172,6 @@ li p.navbar-btn {
 
 
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-    
-}
 
 
 /* QR code generator */
@@ -187,13 +179,7 @@ li p.navbar-btn {
     margin: 15px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 50em) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
+
 
 
 .glyphicon { margin-right:5px; }
@@ -282,17 +268,32 @@ li p.navbar-btn {
     cursor: pointer;
 }
 
-.categories tr {
-    border:1px solid #eee;
+.categories td {
+    padding: 0;
+    margin: 0;
+    margin-top: -1em;
 }
 
-.categories thead {
-    background: azure;
-    
+.categories tr {
+    border:1px solid #eee;
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.4em;
+    margin:0;
+    padding:0;
 }
-.categories input {
+
+/* .categories input {
      margin-right:25%;
+} */
+
+.categories input[type=checkbox] {
+    opacity: 0;
+    height:0;
+    width: 0;
+    margin: 0;
+    padding: 0;
 }
+
 
 
 
@@ -330,24 +331,52 @@ li p.navbar-btn {
     margin: 15% auto;
 }
 
+/* .modal-content div.jumbotron {
+    background-color: #eee;
+    font-family: 'Karla';
+    
+    border: solid thin rgb(69, 40, 0);
+
+}
+
+.modal-content div.jumbotron header {
+    color: rgb(33, 20, 0);
+    text-align: center;
+} */
+
+
+
 .modal-subcontent {
     margin: 0 15%;
 }
 
 .close {
-    color: #aaa;
+    color: rgb(0, 0, 0);
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin-right:5px;
+    margin-top:3px;
 }
 
 .modal-item-title {
     text-align: left;
     font-size: 5vh;
+    padding:0;
+    margin:0;
+    font-family: 'Croissant One';
 }
 
+.modal-content div.row.modal-header {
+    margin-bottom: 2em;
+    padding:0;
+    
+}
+
+
 .modal-item-price {
-    font-size: 3vh; 
+    font-size: 4vh; 
+    font-family: 'Assistant';
     text-align: left;
 }
 
@@ -355,9 +384,9 @@ li p.navbar-btn {
     width: 80%;
 }
 
-.modal-wrapper {
+/* .modal-wrapper {
     padding: 2em;
-}
+} */
 
 
 .modal-image {
@@ -423,4 +452,40 @@ li p.navbar-btn {
 
 
 
+/* 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
 
+.modal-content {
+    width: 80%;
+    padding: 10px;
+    margin: 15% auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+    float: right;
+} */

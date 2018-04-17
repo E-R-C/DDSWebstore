@@ -99,31 +99,27 @@
 <div class="container">
     <div class="row">
         
-        <div class="col-sm-3" style>
+        <div class="col-sm-3">
             
-            <table class="categories">
-                <thead>
-                   
-                    <th>Item Categories</th>
-                
-                </thead>
+            <table class="categories" style="width:100%;">
                 <tbody>
                 <tr>
                     <td>
-                    <input type="checkbox" value="Category 1"/>
-                    <label for="subscribeNews">Category 1</label>
+                        <input type="checkbox" value="Category 1"/>
+                        <label for="subscribeNews">Candles</label>
                     </td>
                 </tr>
                <tr>
                     <td>
+                    
                     <input type="checkbox" value="Category 2"/>
-                    <label for="subscribeNews">Category 2</label>
+                    <label for="subscribeNews">Snowglobes</label>
                     </td>
                 </tr>
                 <tr>
                     <td>
                     <input type="checkbox" value="Category 3"/>
-                    <label for="subscribeNews">Category 3</label>
+                    <label for="subscribeNews">Rugs</label>
                     </td>
                 </tr>
                 </tbody>
@@ -175,24 +171,34 @@
     </div>
 
 <div id="myModal" class="modal">
-    <span class="close">&times;</span>
     <div class="modal-content">
         <!--Header/Title for Modal-->
-        <div class="jumbotron">
+        <span class="close">&times;</span>
+
+        <!-- <div class="jumbotron">
             <header class="modal-item-title"></header>
-        </div>
+        </div> -->
         <!--Body of Modal-->
         <div class="container-fluid modal-subcontent">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-sm-7">
                     <img class="modal-image" src="" />
                 </div>
-                <div class="col-md-5 modal-wrapper">
-                    <div>
-                        <header class="modal-item-title"></header>
+                <div class="col-sm-5 modal-wrapper">
+                    <div class="row">
+                        <div class="col-sm-12" style="padding:0;">
+                            <div class="row modal-header">
+                                <header class="modal-item-title"> </header>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p class="modal-item-price"></p>
+                    <div class="row">
+                        <div class="col-sm-12" style="padding:0;">
+                           <div class="row modal-header">
+                            <header class="modal-item-price"></header>
+                            </div>
+
+                        </div>
                     </div>
                     <div>
                         <p class="modal-item-desc"></p>
