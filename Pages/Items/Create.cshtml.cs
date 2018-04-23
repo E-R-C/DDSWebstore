@@ -31,6 +31,8 @@ namespace DDSWebstore.Pages.Items
 
         [BindProperty]
         public Item Item { get; set; }
+        [BindProperty]
+        public Image Image {get; set;}
 
         [BindProperty]
         public IFormFile Image {set; get;}
@@ -50,8 +52,10 @@ namespace DDSWebstore.Pages.Items
                 this.Image.CopyTo(new FileStream (filePath, FileMode.Create));
                 this.Item.ImageName = fileName;
             }           
-          
+
             _context.Item.Add(Item);
+            Image.ItemID = Item.ID;
+            _context.Image.Add(Image);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
