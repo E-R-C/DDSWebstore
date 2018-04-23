@@ -25,6 +25,8 @@ namespace DDSWebstore.Pages.Items
 
         [BindProperty]
         public Item Item { get; set; }
+        [BindProperty]
+        public Image Image {get; set;}
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -32,8 +34,9 @@ namespace DDSWebstore.Pages.Items
             {
                 return Page();
             }
-
             _context.Item.Add(Item);
+            Image.ItemID = Item.ID;
+            _context.Image.Add(Image);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
