@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace DDSWebstore.Pages.Items
             {
                 return Page();
             }
-
+            ArrayList images = new ArrayList();
             if (this.Image != null) 
             {
                 var fileName = this.Image.FileName;
@@ -49,9 +50,15 @@ namespace DDSWebstore.Pages.Items
                 var filePath = Path.Combine(uploads, fileName);
                 this.Image.CopyTo(new FileStream (filePath, FileMode.Create));
                 this.Item.ImageName = fileName;
+                images.Add(new Image{ImageURL=filePath});
             }           
           
             _context.Item.Add(Item);
+            foreach(Image i in images) {
+                i.ItemID = Item.ID;
+                _context.Image.Add(i);
+
+            }
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
