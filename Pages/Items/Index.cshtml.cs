@@ -30,7 +30,7 @@ namespace DDSWebstore.Pages.Items
                 items = items.Where(s => s.Name.Contains(searchString));
             }
 
-            Item = await items.ToListAsync();
+            Item = await items.Include(i => i.Images).ToListAsync();
         }
     }
 }

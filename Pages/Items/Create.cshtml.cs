@@ -32,6 +32,8 @@ namespace DDSWebstore.Pages.Items
 
         [BindProperty]
         public Item Item { get; set; }
+        [BindProperty]
+        public Image Image {get; set;}
 
         [BindProperty]
         public IFormFile Image {set; get;}
@@ -52,7 +54,7 @@ namespace DDSWebstore.Pages.Items
                 this.Item.ImageName = fileName;
                 images.Add(new Image{ImageURL=filePath});
             }           
-          
+
             _context.Item.Add(Item);
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
