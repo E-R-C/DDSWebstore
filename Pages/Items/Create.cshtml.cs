@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -31,8 +32,6 @@ namespace DDSWebstore.Pages.Items
 
         [BindProperty]
         public Item Item { get; set; }
-        [BindProperty]
-        public Image Image {get; set;}
 
         [BindProperty]
         public IFormFile Image {set; get;}
@@ -43,19 +42,23 @@ namespace DDSWebstore.Pages.Items
             {
                 return Page();
             }
-
+            ArrayList images = new ArrayList();
             if (this.Image != null) 
             {
                 var fileName = this.Image.FileName;
+                // there needs to be validation on filename
                 var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
                 var filePath = Path.Combine(uploads, fileName);
                 this.Image.CopyTo(new FileStream (filePath, FileMode.Create));
-                this.Item.ImageName = fileName;
+                images.Add(new Image{ImageURL=filePath});
             }           
 
             _context.Item.Add(Item);
-            Image.ItemID = Item.ID;
-            _context.Image.Add(Image);
+            foreach(Image i in images) {
+                i.ItemID = Item.ID;
+                _context.Image.Add(i);
+
+            }
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

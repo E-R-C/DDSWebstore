@@ -53,16 +53,16 @@ namespace DDSWebstore.Pages.Items
 
             if (Item != null)
             {   
-                var fileName = this.Item.ImageName;
-                var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
-                var filePath = Path.Combine(uploads, fileName);
-                _context.Item.Remove(Item);
-                await _context.SaveChangesAsync();
+                // var fileName = this.Item.ImageName;
+                // var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+                // var filePath = Path.Combine(uploads, fileName);
+                // _context.Item.Remove(Item);
+                // await _context.SaveChangesAsync();
 
-                if (System.IO.File.Exists(filePath))
-                {
-                    System.IO.File.Delete(filePath);
-                }
+                // if (System.IO.File.Exists(filePath))
+                // {
+                //     System.IO.File.Delete(filePath);
+                // }
             }
 
             return RedirectToPage("./Index");
