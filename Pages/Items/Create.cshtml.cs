@@ -35,7 +35,7 @@ namespace DDSWebstore.Pages.Items
         public Item Item { get; set; }
 
         [BindProperty]
-        public IFormFile Image {set; get;}
+        public List <IFormFile> Image {set; get;}
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -46,14 +46,16 @@ namespace DDSWebstore.Pages.Items
             ArrayList images = new ArrayList();
             if (this.Image != null) 
             {
-                var fileName = this.Image.FileName;
+                foreach (IFormFile f in Image) {
+                var fileName = f.FileName;
                 // there needs to be validation on filename
                 String uploadFolder = "uploads";
                 var uploads = Path.Combine(_hostingEnvironment.WebRootPath, uploadFolder);
                 var filePath = Path.Combine(uploads, fileName);
-                this.Image.CopyTo(new FileStream (filePath, FileMode.Create));
+                f.CopyTo(new FileStream (filePath, FileMode.Create));
                 var filePath2 = Path.Combine(uploadFolder, fileName);
                 images.Add(new Image{ImageURL=filePath2});
+                }
             }           
 
             _context.Item.Add(Item);
