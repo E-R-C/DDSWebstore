@@ -139,7 +139,7 @@
             @foreach (var item in Model.Item) {
                 <div class="item col-xs-4 col-lg-4">
                 <div class="thumbnail">
-                                <img class="item-image" src="~/uploads/@item.ImageName" alt="" />
+                                <img class="item-image" src="~/uploads/@item.Images[0]" alt="" />
                     <div class="caption">
                         <h4 class="product-title">
                             @Html.DisplayFor(modelItem => item.Name)

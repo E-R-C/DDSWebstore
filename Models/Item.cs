@@ -18,7 +18,6 @@ namespace DDSWebstore.Models
     [DataType(DataType.Currency)]
     public float Price{get; set;}
     
-    public string ImageName {set; get;}
 
     public virtual IList<DDSWebstore.Models.Image> Images { get; set; }
 
