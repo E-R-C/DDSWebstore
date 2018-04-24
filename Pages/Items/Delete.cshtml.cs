@@ -33,7 +33,7 @@ namespace DDSWebstore.Pages.Items
                 return NotFound();
             }
 
-            Item = await _context.Item.SingleOrDefaultAsync(m => m.ID == id);
+            Item = await _context.Item.Include(s => s.Images).SingleOrDefaultAsync(m => m.ID == id);
 
             if (Item == null)
             {
@@ -49,7 +49,7 @@ namespace DDSWebstore.Pages.Items
                 return NotFound();
             }
 
-            Item = await _context.Item.FindAsync(id);
+            Item = await _context.Item.Include(s => s.Images).FirstOrDefaultAsync(i => i.ID == id);
 
             if (Item != null)
             {   
@@ -57,12 +57,16 @@ namespace DDSWebstore.Pages.Items
                 // var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
                 // var filePath = Path.Combine(uploads, fileName);
                 _context.Item.Remove(Item);
+                foreach(Image i in Item.Images){
+                    if (System.IO.File.Exists(i.ImageURL))
+                    {
+                        System.IO.File.Delete(i.ImageURL);
+                    }
+                }
                 await _context.SaveChangesAsync();
 
-                // if (System.IO.File.Exists(filePath))
-                // {
-                //     System.IO.File.Delete(filePath);
-                // }
+
+                
             }
 
             return RedirectToPage("./Index");
