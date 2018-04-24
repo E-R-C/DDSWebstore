@@ -48,10 +48,12 @@ namespace DDSWebstore.Pages.Items
             {
                 var fileName = this.Image.FileName;
                 // there needs to be validation on filename
-                var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+                String uploadFolder = "uploads";
+                var uploads = Path.Combine(_hostingEnvironment.WebRootPath, uploadFolder);
                 var filePath = Path.Combine(uploads, fileName);
                 this.Image.CopyTo(new FileStream (filePath, FileMode.Create));
-                images.Add(new Image{ImageURL=filePath});
+                var filePath2 = Path.Combine(uploadFolder, fileName);
+                images.Add(new Image{ImageURL=filePath2});
             }           
 
             _context.Item.Add(Item);

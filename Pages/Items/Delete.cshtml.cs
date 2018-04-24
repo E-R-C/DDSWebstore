@@ -56,8 +56,8 @@ namespace DDSWebstore.Pages.Items
                 // var fileName = this.Item.ImageName;
                 // var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
                 // var filePath = Path.Combine(uploads, fileName);
-                // _context.Item.Remove(Item);
-                // await _context.SaveChangesAsync();
+                _context.Item.Remove(Item);
+                await _context.SaveChangesAsync();
 
                 // if (System.IO.File.Exists(filePath))
                 // {
