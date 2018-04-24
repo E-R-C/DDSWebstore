@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,7 +58,6 @@ namespace DDSWebstore.Pages.Items
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
                 _context.Image.Add(i);
-
             }
             await _context.SaveChangesAsync();
 
