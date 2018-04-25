@@ -198,12 +198,13 @@
                     class="glyphicon glyphicon-th"></span>Grid</a>
             </div>
         </div> -->
+
         <div id="products" class="row list-group">
+            @{var i = 0;}
             @foreach (var item in Model.Item) {
-                // <p> @(item.Images.LongCount()) </p>
-                <div class="item col-xs-4 col-lg-4">
-                <div class="thumbnail">
-                                <img class="item-image" src="@item.Images[0].ImageURL" alt="" />
+                <div class="item col-xs-12 col-sm-6 col-md-4" >
+                 <div class="thumbnail">
+                       <img class="item-image" src="@item.Images[0].ImageURL" alt="" />
                     <div class="caption">
                         <h4 class="product-title">
                             @Html.DisplayFor(modelItem => item.Name)
@@ -221,18 +222,21 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            }  
+                </div>          
+            }
+          
+     
+          </div>
+        </div>
 
         <p>@ViewBag.message</p>
     </div>
         <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
         </div> -->
         
+     
     </div>
-    </div>
-    </div>
-    </div>
+</div>
 
 <div id="myModal" class="modal">
     <div class="modal-content">
@@ -258,24 +262,22 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12" style="padding:0;">
-                           <div class="row modal-header">
-                            <header class="modal-item-price"></header>
-                            </div>
-
+                            <p class="modal-item-price"></p>
+                            
                         </div>
                     </div>
-                    <div>
+                    <div class="row">
                         <p class="modal-item-desc"></p>
                     </div>
-                    <div >
+                    <div class="row">
                         <a class="btn btn-success modal-cart-button">Add to Cart</a>
                     </div>
-                    <div>
+                    <div class="row">
                         <p class="modal-item-id"></p>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-bottom:2em;">
                 <div class="col-md-7">
                     <ul class="list-inline">
                         <li class="alt-image">
