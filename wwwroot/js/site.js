@@ -225,7 +225,11 @@ $(document).ready(function () {
         id = $(this).parent().children('.caption').children('.row').find('.id').text()
         //console.log($(this).parent().parent().prev());
         img = $(this).attr('src'); //parent().parent().parent().prev().attr('src');
-
+        urlArray = new Array();
+        $(this).parent().children('.urls').each(function () {
+            url = $(this).text();
+            urlArray.push(url);
+        })
 
         modalContent = modal.find('.modal-content');
         modalContent.find('.modal-image').attr('src', img);
@@ -233,6 +237,12 @@ $(document).ready(function () {
         modalContent.find('.modal-item-title').text(productTitle);
         modalContent.find('.modal-item-desc').text(productDesc);
         modalContent.find('.modal-item-id').text(id);
+
+        //populate image on modal
+        $list = modalContent.find('.list-inline');
+        for (var i = 0; i < urlArray.length; i++) {
+            $list.append('<li class="alt-image"> <img src = "' + urlArray[i] + '" width = "75" height = "75" /></li >');
+        }
 
         modal.css("display", "block");
     });
@@ -257,10 +267,13 @@ $(document).ready(function () {
     })
 
     $('.close').on('click', function () {
+        modalContent = modal.find('.modal-content');
+        $list = modalContent.find('.list-inline');
+        $list.empty();
         modal.css("display", "none");
     });
 
-    $('.alt-image').on('click', function () {
+    $('.list-inline').on('click', '.alt-image', function () {
         console.log("image clicked");
         img = $(this).children('img').attr('src');
         modal.find('.modal-content').find('.modal-image').attr('src', img);
@@ -269,6 +282,9 @@ $(document).ready(function () {
 
     window.onclick = function (event) {
         if (event.target == document.getElementById('myModal')) {
+            modalContent = modal.find('.modal-content');
+            $list = modalContent.find('.list-inline');
+            $list.empty();
             document.getElementById('myModal').style.display = "none";
         }
     } 

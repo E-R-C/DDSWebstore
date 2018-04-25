@@ -203,25 +203,29 @@
             @{var i = 0;}
             @foreach (var item in Model.Item) {
                 <div class="item col-xs-12 col-sm-6 col-md-4" >
-                 <div class="thumbnail">
-                       <img class="item-image" src="@item.Images[0].ImageURL" alt="" />
-                    <div class="caption">
-                        <h4 class="product-title">
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </h4>
-                        <p class="product-desc">@Html.DisplayFor(modelItem => item.Description)</p>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6">
-                                <p class="price">
-                                    @Html.DisplayFor(modelItem => item.Price)
-                                </p>
-                                <p class="id">
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </p>
+                    <div class="thumbnail">
+                        <img class="item-image" src="@item.Images[0].ImageURL" alt="" />
+                        @foreach (var image in item.Images)
+                         {
+                             <p class="urls">@Html.DisplayFor(modelItem => image.ImageURL)</p>
+                         }
+                        <div class="caption">
+                            <h4 class="product-title">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </h4>
+                            <p class="product-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <p class="price">
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </p>
+                                    <p class="id">
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>          
             }
           
@@ -280,12 +284,6 @@
             <div class="row" style="margin-bottom:2em;">
                 <div class="col-md-7">
                     <ul class="list-inline">
-                        <li class="alt-image">
-                            <img src="http://cdn2-www.dogtime.com/assets/uploads/gallery/pomeranian-dog-breed-pictures/thumbs/thumbs_1-layingforward.jpg" width="75" height="75" />
-                        </li>
-                        <li class="alt-image">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pomeranian_Thank_You.jpg" width="75" height="75" />
-                        </li>
                     </ul>
                 </div>
                 <div class="col-md-5">
