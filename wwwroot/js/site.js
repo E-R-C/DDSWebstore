@@ -169,9 +169,26 @@
 cookiesValue = []
 Cookies.set('ddsCookie', cookiesValue)
 
+
+
 $(document).ready(function () {
+    
+    var $windowSize = 5000;
+
+    if ($(window).width() < 782) {
+        $('#categories-collapse').collapse("hide");
+    }
 
     $('a').mouseup(function() { $(this).blur() })
+    window.onresize = function(){
+        if ( $(window).width() < 782 && $windowSize > $(window).width()) {      
+            $('#categories-collapse').collapse("hide");
+        } 
+        else {
+            $('#categories-collapse').collapse("show");
+        }
+        $windowSize = $(window).width();
+    }
 
     console.log("javascript loaded");
     $('.categories tr').click(function (event) {
