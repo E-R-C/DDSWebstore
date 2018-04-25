@@ -166,8 +166,6 @@
     return init(function () { });
 }));
 
-cookiesValue = []
-Cookies.set('ddsCookie', cookiesValue)
 
 // function setCookies(){
 //     if(cookiesValue == []){
@@ -175,8 +173,17 @@ Cookies.set('ddsCookie', cookiesValue)
 //     }
 // }
 
+var cookiesValueDefined = false;
+
+function defineCookiesValues(){
+    if(!cookiesValueDefined){
+        cookiesValue = [];
+        cookiesValueDefined = true;
+    }
+}
+
 $(document).ready(function () {
-    
+    defineCookiesValues();
     var $windowSize = 5000;
 
     if ($(window).width() < 782) {
@@ -233,6 +240,10 @@ $(document).ready(function () {
     $('.modal-cart-button').on('click', () => {
         console.log("here I am what?????");
         var $id = parseInt($.trim($(".modal-item-id").text()));
+        // Cookies.set('ddsCookie', cookiesValue);
+        // var expiration_date = new Date();
+        // var cookie_string = '';
+        // expiration_date.setFullYear(expiration_date.getFullYear() + 1);
         cookiesValue.push($id);
         Cookies.set('ddsCookie', cookiesValue);
         console.log("ddsCookie set successfully");
@@ -241,6 +252,7 @@ $(document).ready(function () {
 
     $('#cart-button').on('click', () => {
         cookieContents = Cookies.get('ddsCookie');
+        console.log(typeof cookieContents);
         console.log(cookieContents);
     })
 

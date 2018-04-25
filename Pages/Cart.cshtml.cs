@@ -13,7 +13,7 @@ namespace DDSWebstore.Pages
     public class CartModel : PageModel{
         private readonly DDSWebstore.Models.MyDBContext _context;
         public List<int> cookieResults;
-        public string ddsCookie;
+        public static string ddsCookie;
 
         public CartModel(DDSWebstore.Models.MyDBContext context)
         {
@@ -23,16 +23,16 @@ namespace DDSWebstore.Pages
         public IList<Item> Item { get;set; }
         public async Task OnGetAsync()
         { 
-            this.ddsCookie = Request.Cookies["ddsCookie"];
+            CartModel.ddsCookie = Request.Cookies["ddsCookie"];
             // foreach(var i in ddsCookie.Split(',').ToList()){
             //     this.cookieResults.Add(int.Parse(i));
             // }
-            Console.Write(this.ddsCookie);
+            Console.Write(CartModel.ddsCookie);
             // foreach(var c in this.ddsCookie){
             //     Console.
             // }
 
-            this.cookieResults = this.parseCookieResults(this.ddsCookie);//ddsCookie.Split(',').ToList();
+            this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
             Console.Write(" ");
             Console.Write(this.cookieResults);
             Console.Write(" ");
