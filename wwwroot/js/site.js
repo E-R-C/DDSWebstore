@@ -169,7 +169,11 @@
 cookiesValue = []
 Cookies.set('ddsCookie', cookiesValue)
 
-
+// function setCookies(){
+//     if(cookiesValue == []){
+//         Cookies.set('ddsCookie', cookiesValue)
+//     }
+// }
 
 $(document).ready(function () {
     
@@ -228,7 +232,7 @@ $(document).ready(function () {
 
     $('.modal-cart-button').on('click', () => {
         console.log("here I am what?????");
-        var $id = $.trim($(".modal-item-id").text());
+        var $id = parseInt($.trim($(".modal-item-id").text()));
         cookiesValue.push($id);
         Cookies.set('ddsCookie', cookiesValue);
         console.log("ddsCookie set successfully");
