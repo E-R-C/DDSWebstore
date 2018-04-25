@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DDSWebstore.Models
 {
-  public class MyDBContext : DbContext
+  public class MyDBContext : DbContext, IdentityDbContext
   {
 //     protected override void OnModelCreating( ModelBuilder builder ) {
 //     base.OnModelCreating( builder );

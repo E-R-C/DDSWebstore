@@ -13190,29 +13190,44 @@
     ]
   },
   "packageFolders": {
+<<<<<<< Updated upstream
     "/Users/anna/.nuget/packages/": {},
+=======
+    "/Users/boscondemeye/.nuget/packages/": {},
+>>>>>>> Stashed changes
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "/Users/anna/databases/DDSWebstore/DDSWebstore.csproj",
       "projectName": "DDSWebstore",
       "projectPath": "/Users/anna/databases/DDSWebstore/DDSWebstore.csproj",
       "packagesPath": "/Users/anna/.nuget/packages/",
       "outputPath": "/Users/anna/databases/DDSWebstore/obj/",
+=======
+      "projectUniqueName": "/Users/boscondemeye/Desktop/DDSWebstore/DDSWebstore.csproj",
+      "projectName": "DDSWebstore",
+      "projectPath": "/Users/boscondemeye/Desktop/DDSWebstore/DDSWebstore.csproj",
+      "packagesPath": "/Users/boscondemeye/.nuget/packages/",
+      "outputPath": "/Users/boscondemeye/Desktop/DDSWebstore/obj/",
+>>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< Updated upstream
         "/Users/anna/.nuget/NuGet/NuGet.Config"
+=======
+        "/Users/boscondemeye/.nuget/NuGet/NuGet.Config"
+>>>>>>> Stashed changes
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

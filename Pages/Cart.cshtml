@@ -3,6 +3,20 @@
 @{
     ViewData["Title"] = "Cart";
 }
+		<table style="width:100%">
+		<tr>
+			<th>Name</th>
+			<th>Price</th> 
+			<th>Number of Items</th>
+		</tr>
+			@foreach(var item in Model.Item) {
+						<tr>
+							<td>@Html.DisplayFor(modelItem => item.Name)</td>
+							<td>@Html.DisplayFor(modelItem => item.Price)</td> 
+							<td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+						</tr>
+			}
+		</table>
 		<div class="row" style="margin-top:3em;">
 			<div class="col-md-4">
 				<form>
@@ -84,3 +98,4 @@
         }, '#paypal-button-container');
 
     </script>
+		</div>
