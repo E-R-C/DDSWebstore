@@ -28,13 +28,12 @@
 		<tr>
 			<th>Name</th>
 			<th>Price</th> 
-			<th>Number of Items</th>
 		</tr>
 			@foreach(var item in Model.Item) {
+				// @int total = 0; 
 						<tr>
 							<td>@Html.DisplayFor(modelItem => item.Name)</td>
 							<td>@Html.DisplayFor(modelItem => item.Price)</td> 
-							<td>@Html.DisplayFor(modelItem => item.Quantity)</td>
 						</tr>
 			}
 		</table>

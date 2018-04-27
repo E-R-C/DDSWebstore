@@ -173,13 +173,39 @@
 //     }
 // }
 
-var cookiesValueDefined = false;
+// var cookiesValueDefined = false;
 
 function defineCookiesValues(){
-    if(!cookiesValueDefined){
+    cookiesValue = Cookies.get("ddsCookie");
+    cookiesValue = parseCookieResults(cookiesValue);
+    console.log(cookiesValue);
+    console.log(typeof cookiesValue);
+    if(cookiesValue == null){
         cookiesValue = [];
         cookiesValueDefined = true;
     }
+}
+
+/*        private List<int> parseCookieResults(string results){
+
+            List<int> toReturn = new List<int>();
+            foreach ( var c in results) {
+                Console.Write(c + " ");
+                if(c != '[' && c != ']' && c != ','){
+                    toReturn.Add(int.Parse(c.ToString()));
+                }
+            }
+            return toReturn;
+        } */
+
+function parseCookieResults(l){
+    toReturn = [];
+    for(var c in l){
+        if(c != '[' && c != ']' && c != ','){
+            toReturn.push(parseInt(c.toString()));
+        }
+    }
+    return toReturn;
 }
 
 $(document).ready(function () {
