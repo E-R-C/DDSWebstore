@@ -24,19 +24,42 @@
             	<div style="padding-left:5px; padding-top:5px;" id="paypal-button-container"></div>
 			</div>
             <div class="col-md-8">
-                <table style="width:100%">
-		<tr>
-			<th>Name</th>
-			<th>Price</th> 
-		</tr>
+				@{
+				double sum = 0.0;
+
+				if(@Model.Item.LongCount() == 0){
+				<div class="emptyCart">
+					<p>  Your cart is empty !</p>
+				</div>
+				}
+				else {
+					<table style="width:100%" id="cartTable">
+					<thead>
+					<tr>
+						<th>Name</th>
+						<th>Price</th> 
+					</tr>
+					</thead>
+					<tbody>
 			@foreach(var item in Model.Item) {
-				// @int total = 0; 
-						<tr>
-							<td>@Html.DisplayFor(modelItem => item.Name)</td>
-							<td>@Html.DisplayFor(modelItem => item.Price)</td> 
-						</tr>
-			}
-		</table>
+				sum += item.Price;
+					<tr>
+						<td>@Html.DisplayFor(modelItem => item.Name)</td>
+						<td>@Html.DisplayFor(modelItem => item.Price)</td> 
+						<td><input type="button" value="delete" onclick="deleteItem(this, @item.ID)"></td>
+					</tr>
+				}
+
+			</tbody>
+			</table>
+			<div>
+			<input type="button" value="clear cart" onclick="clearCart()">
+			</div>
+				}
+        
+				}
+		<!-- $("#tableId > tbody").empty(); -->
+		
             </div>
 		</div>
 	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -65,7 +88,7 @@
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '0.01', currency: 'USD' }
+                                amount: { total: "@sum", currency: 'USD' }
                             }
                         ]
                     }

@@ -167,49 +167,46 @@
 }));
 
 
-// function setCookies(){
-//     if(cookiesValue == []){
-//         Cookies.set('ddsCookie', cookiesValue)
-//     }
-// }
-
-// var cookiesValueDefined = false;
-
 function defineCookiesValues(){
-    cookiesValue = Cookies.get("ddsCookie");
-    cookiesValue = parseCookieResults(cookiesValue);
-    console.log(cookiesValue);
-    console.log(typeof cookiesValue);
+    cookiesValue1 = Cookies.get("ddsCookie");
+    cookiesValue = parseCookieResults(cookiesValue1);
     if(cookiesValue == null){
         cookiesValue = [];
-        cookiesValueDefined = true;
     }
 }
 
-/*        private List<int> parseCookieResults(string results){
-
-            List<int> toReturn = new List<int>();
-            foreach ( var c in results) {
-                Console.Write(c + " ");
-                if(c != '[' && c != ']' && c != ','){
-                    toReturn.Add(int.Parse(c.ToString()));
-                }
-            }
-            return toReturn;
-        } */
-
 function parseCookieResults(l){
-    toReturn = [];
-    for(var c in l){
-        if(c != '[' && c != ']' && c != ','){
-            toReturn.push(parseInt(c.toString()));
-        }
+    return JSON.parse(l);
+}
+
+function deleteItem(row, id){
+    var i = row.parentNode.parentNode.rowIndex;
+    document.getElementById("cartTable").deleteRow(i);
+    var temp = Cookies.get("ddsCookie");
+    cookiesValue = parseCookieResults(temp);
+    var index = cookiesValue.indexOf(id);
+    console.log("cookiesValue before removing: " + cookiesValue);
+    console.log("this is my index: " + index);
+    console.log("this is the id to remove: " + id);
+    if (index > -1) {
+        cookiesValue.splice(index, 1);
     }
-    return toReturn;
+    console.log("cookiesValue after removing: " + cookiesValue);
+    Cookies.set("ddsCookie", cookiesValue);
+    
+
+}
+
+function clearCart(){
+    $("#cartTable > tbody").empty();
+    cookiesValue = [];
+    Cookies.set("ddsCookie", cookiesValue);
 }
 
 $(document).ready(function () {
     defineCookiesValues();
+    // cookiesValue = [];
+    // Cookies.set("ddsCookie", cookiesValue);
     var $windowSize = 5000;
 
     if ($(window).width() < 782) {
@@ -274,23 +271,12 @@ $(document).ready(function () {
     });
 
     $('.modal-cart-button').on('click', () => {
-        console.log("here I am what?????");
         var $id = parseInt($.trim($(".modal-item-id").text()));
-        // Cookies.set('ddsCookie', cookiesValue);
-        // var expiration_date = new Date();
-        // var cookie_string = '';
-        // expiration_date.setFullYear(expiration_date.getFullYear() + 1);
         cookiesValue.push($id);
         Cookies.set('ddsCookie', cookiesValue);
         console.log("ddsCookie set successfully");
 
     });
-
-    $('#cart-button').on('click', () => {
-        cookieContents = Cookies.get('ddsCookie');
-        console.log(typeof cookieContents);
-        console.log(cookieContents);
-    })
 
     $('.close').on('click', function () {
         modalContent = modal.find('.modal-content');

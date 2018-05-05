@@ -557,6 +557,14 @@ div.row.list-group {
     display: none;
 }
 
+.emptyCart {
+    text-align: center;
+}
+
+.emptyCart p {
+    font-size: 2em;
+}
+
 
 
 
