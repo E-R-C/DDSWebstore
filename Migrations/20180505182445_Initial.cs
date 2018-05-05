@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DDSWebstore.Migrations
 {
-    public partial class init : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,7 @@ namespace DDSWebstore.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Description = table.Column<string>(nullable: true),
+                    FID = table.Column<string>(nullable: true),
                     Location = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<float>(nullable: false),

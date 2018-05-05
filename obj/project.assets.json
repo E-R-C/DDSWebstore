@@ -13190,28 +13190,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/boscondemeye/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\jkwee\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/boscondemeye/Desktop/DDSWebstore/DDSWebstore.csproj",
+      "projectUniqueName": "C:\\Users\\jkwee\\Desktop\\Projects\\DDSWebstore\\DDSWebstore.csproj",
       "projectName": "DDSWebstore",
-      "projectPath": "/Users/boscondemeye/Desktop/DDSWebstore/DDSWebstore.csproj",
-      "packagesPath": "/Users/boscondemeye/.nuget/packages/",
-      "outputPath": "/Users/boscondemeye/Desktop/DDSWebstore/obj/",
+      "projectPath": "C:\\Users\\jkwee\\Desktop\\Projects\\DDSWebstore\\DDSWebstore.csproj",
+      "packagesPath": "C:\\Users\\jkwee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jkwee\\Desktop\\Projects\\DDSWebstore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/boscondemeye/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jkwee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13257,13 +13259,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/boscondemeye/Desktop/DDSWebstore/obj/DDSWebstore.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

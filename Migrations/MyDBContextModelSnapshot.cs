@@ -77,7 +77,7 @@ namespace DDSWebstore.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("ImageName");
+                    b.Property<string>("FID");
 
                     b.Property<string>("Location");
 

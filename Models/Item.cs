@@ -14,6 +14,8 @@ namespace DDSWebstore.Models
     public string Description{get; set;}
     public string Location{get; set;}
     public int Quantity{get; set;}
+
+    public string FID {get; set;}
     
     [DataType(DataType.Currency)]
     public float Price{get; set;}
