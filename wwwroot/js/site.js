@@ -176,7 +176,8 @@ function defineCookiesValues(){
 }
 
 function parseCookieResults(l){
-    return JSON.parse(l);
+    console.log(l);
+    //return JSON.parse(l);
 }
 
 function without(array, what){
@@ -210,31 +211,31 @@ Array.prototype.unique = function() {
     });
   }
 
-  function countCookies() {
-      if (Cookies.get("ddsCookie") == null) {
-          return 0;
-      }
-      var cookie = Cookies.get("ddsCookie");
-      var c = parseCookieResults(cookie);
-      return c.unique().length;
-  }
+//   function countCookies() {
+//       if (Cookies.get("ddsCookie") == null) {
+//           return 0;
+//       }
+//       var cookie = Cookies.get("ddsCookie");
+//       var c = parseCookieResults(cookie);
+//       return c.unique().length;
+//   }
 
-  function setBadge() {
-      var b = document.getElementById("target");
-      var c = countCookies();
-      if (c == 0) {
-          b.style.visibility = 'hidden';
-      } else {
-          b.style.visibility = 'visible';
-          b.innerHTML = parseInt(c);
-      }
-  }
+//   function setBadge() {
+//       var b = document.getElementById("target");
+//       var c = countCookies();
+//       if (c == 0) {
+//           b.style.visibility = 'hidden';
+//       } else {
+//           b.style.visibility = 'visible';
+//           b.innerHTML = parseInt(c);
+//       }
+//   }
 
 function clearCart(){
     $("#cartTable > tbody").empty();
     cookiesValue = [];
     Cookies.set("ddsCookie", cookiesValue);
-    setBadge();
+    //setBadge();
 }
 
 
@@ -249,7 +250,7 @@ function incrementValue() {
 
 $(document).ready(function () {
     defineCookiesValues();
-    setBadge();
+    //setBadge();
     // cookiesValue = [];
     // Cookies.set("ddsCookie", cookiesValue);
     var $windowSize = 5000;
@@ -285,6 +286,7 @@ $(document).ready(function () {
 
     console.log("javascript loaded");
     $('.categories tr').click(function (event) {
+        console.log("clicked");
         if (event.target.type !== 'checkbox') {
             $(':checkbox', this).trigger('click');
         }
@@ -300,13 +302,14 @@ $(document).ready(function () {
 
     var modal = $('#myModal');
 
-    $('.item-image').on('click', function () {
-        price = $(this).parent().children('.caption').children('.row').find('.price').text(); //.parent().prev().find('.price').text();
-        productTitle = $(this).parent().children('.caption').children('.product-title').text(); //.$(this).parent().parent().prev().text();
-        productDesc = $(this).parent().children('.caption').children('.product-desc').text();
-        id = $(this).parent().children('.caption').children('.row').find('.id').text()
+    $('.bounding-box.item-image').on('click', function () {
+        price = $(this).attr('p-price');
+        productTitle = $(this).attr('p-title');
+        productDesc = $(this).attr('p-desc');
+        id = $(this).attr('p-id');
         //console.log($(this).parent().parent().prev());
-        img = $(this).attr('src'); //parent().parent().parent().prev().attr('src');
+        img = $(this).attr('p-image'); //parent().parent().parent().prev().attr('src');
+        img_display = $(this).attr('style')
         urlArray = new Array();
         $(this).parent().children('.urls').each(function () {
             url = $(this).text();
@@ -314,7 +317,8 @@ $(document).ready(function () {
         })
 
         modalContent = modal.find('.modal-content');
-        modalContent.find('.modal-image').attr('src', img);
+        modalContent.find('.modal-image').attr('style', img_display);
+        //modalContent.find('.modal-image').attr('src', img);
         modalContent.find('.modal-item-price').text(price);
         modalContent.find('.modal-item-title').text(productTitle);
         modalContent.find('.modal-item-desc').text(productDesc);
@@ -323,7 +327,9 @@ $(document).ready(function () {
         //populate image on modal
         $list = modalContent.find('.list-inline');
         for (var i = 0; i < urlArray.length; i++) {
-            $list.append('<li class="alt-image"> <img src = "' + urlArray[i] + '" width = "75" height = "75" /></li >');
+            alt_img_display = 'background-image: url(' + urlArray[i] + ')';
+            console.log(urlArray[i]);
+            $list.append('<li class="alt-image"> <img class="bounding-box modal-alt-image" style="background-image: url(' + urlArray[i] + ')"' + ' /></li >');
         }
 
         modal.css("display", "block");
@@ -350,8 +356,8 @@ $(document).ready(function () {
 
     $('.list-inline').on('click', '.alt-image', function () {
         console.log("image clicked");
-        img = $(this).children('img').attr('src');
-        modal.find('.modal-content').find('.modal-image').attr('src', img);
+        img_display = $(this).children('img').attr('style');
+        modal.find('.modal-content').find('.modal-image').attr('style', img_display);
     });
 
 
