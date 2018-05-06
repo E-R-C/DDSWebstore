@@ -69,7 +69,7 @@ namespace DDSWebstore.Pages.Items
                     var filePath2 = Path.Combine(Path.Combine(uploadFolder, newDir), fileName);
                     images.Add(new Image{ImageURL=filePath2});
                 }
-            }         
+            }
             _context.Item.Add(Item);
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
