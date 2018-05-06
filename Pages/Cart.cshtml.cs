@@ -31,15 +31,18 @@ namespace DDSWebstore.Pages
             // foreach(var c in this.ddsCookie){
             //     Console.
             // }
-
-            this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
-            Console.Write(" ");
-            Console.Write(this.cookieResults);
-            Console.Write(" ");
-            var  items = _context.Item.Where(t => cookieResults.Contains(t.ID));
-            // var items = _context.Item.Join(cookieResults, up => up.ID, id => id, (up, id) => up);
-            
-            Item = await items.ToListAsync();
+            if(CartModel.ddsCookie != null){
+                this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
+                Console.Write(" ");
+                Console.Write(this.cookieResults);
+                Console.Write(" ");
+                var  items = _context.Item.Where(t => cookieResults.Contains(t.ID));
+                // var items = _context.Item.Join(cookieResults, up => up.ID, id => id, (up, id) => up);
+                
+                Item = await items.ToListAsync();
+            }else{
+                Item = new List<Item>();
+            }
         }
 
         private List<int> parseCookieResults(string results){
