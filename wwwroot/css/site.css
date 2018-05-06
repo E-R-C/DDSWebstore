@@ -124,12 +124,53 @@ li p.navbar-btn {
     /* border: solid thin rgb(174, 147, 225);
     background: rgb(217, 217, 217);
     border-radius: 6px; */
+
+}
+
+.nav.navbar-nav li a:hover .badge{
+    background-color: rgb(219, 128, 0);
+    color: black;
 }
 
 .nav.navbar-nav li a.btn {
     padding-left:.2em;
 }
 
+.badge {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    color: white;
+    display: float;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* visibility: hidden; */
+}
+
+/* .set-ripple {
+	-webkit-animation: ripple 0.8s, color-change 0.8s;
+}
+
+@-webkit-keyframes ripple {
+    0% {
+      @include transform(scale(1));
+    }
+    100% {
+      box-shadow: 0 0 0 150px rgba(#fff, 0);
+    }
+  }
+
+  @-webkit-keyframes color-change {
+	0%, 80%, 100% {
+		background-color: none;
+	}
+	30% {
+		background-color: #5cb85c;
+	}
+} */
 
 /* .nav.navbar-nav.navbar-right li a:hover {
     color: #5F01F4;

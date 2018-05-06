@@ -179,6 +179,12 @@ function parseCookieResults(l){
     return JSON.parse(l);
 }
 
+function without(array, what){
+    return array.filter(function(element){ 
+        return element !== what;
+    });
+}
+
 function deleteItem(row, id){
     var i = row.parentNode.parentNode.rowIndex;
     document.getElementById("cartTable").deleteRow(i);
@@ -188,26 +194,79 @@ function deleteItem(row, id){
     console.log("cookiesValue before removing: " + cookiesValue);
     console.log("this is my index: " + index);
     console.log("this is the id to remove: " + id);
-    if (index > -1) {
-        cookiesValue.splice(index, 1);
-    }
+    cookiesValue = without(cookiesValue, id);
+    // if (index > -1) {
+    //     cookiesValue.splice(index, 1);
+    // }
     console.log("cookiesValue after removing: " + cookiesValue);
     Cookies.set("ddsCookie", cookiesValue);
-    
+    setBadge();
 
 }
+
+Array.prototype.unique = function() {
+    return this.filter(function (value, index, self) { 
+      return self.indexOf(value) === index;
+    });
+  }
+
+  function countCookies() {
+      if (Cookies.get("ddsCookie") == null) {
+          return 0;
+      }
+      var cookie = Cookies.get("ddsCookie");
+      var c = parseCookieResults(cookie);
+      return c.unique().length;
+  }
+
+  function setBadge() {
+      var b = document.getElementById("target");
+      var c = countCookies();
+      if (c == 0) {
+          b.style.visibility = 'hidden';
+      } else {
+          b.style.visibility = 'visible';
+          b.innerHTML = parseInt(c);
+      }
+  }
 
 function clearCart(){
     $("#cartTable > tbody").empty();
     cookiesValue = [];
     Cookies.set("ddsCookie", cookiesValue);
+    setBadge();
+}
+
+
+function incrementValue() {
+    var x = document.getElementById("target");
+    x.style.visibility = 'visible';
+    // if (x.innerHTML == 0) {
+    //     x.style.visability = 'visible';
+    // }
+  x.innerHTML = parseInt(x.innerHTML)+1;
 }
 
 $(document).ready(function () {
     defineCookiesValues();
+    setBadge();
     // cookiesValue = [];
     // Cookies.set("ddsCookie", cookiesValue);
     var $windowSize = 5000;
+
+    // function triggerPulse() {
+    //     var t = document.getElementById("targetEl");
+    //     t.classList.add("set-ripple");
+        
+    //     setTimeout(function() {
+    //     t.classList.remove('set-ripple');
+    //   }, 600);
+        
+    //     setTimeout(function() {
+    //         t.classList.add("add-new-color");
+    //   }, 100);
+        
+    // };
 
     if ($(window).width() < 782) {
         $('#categories-collapse').collapse("hide");
@@ -271,11 +330,15 @@ $(document).ready(function () {
     });
 
     $('.modal-cart-button').on('click', () => {
+        // triggerPulse;
+        
         var $id = parseInt($.trim($(".modal-item-id").text()));
         cookiesValue.push($id);
         Cookies.set('ddsCookie', cookiesValue);
+        setBadge();
         console.log("ddsCookie set successfully");
-
+        // console.log(parseCookieResults(Cookies.get("ddsCookie")));
+        // console.log(countCookies());
     });
 
     $('.close').on('click', function () {
