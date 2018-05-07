@@ -27,7 +27,7 @@ namespace DDSWebstore.Pages.Orders
                 return NotFound();
             }
 
-            Order = await _context.Order.SingleOrDefaultAsync(m => m.ID == id);
+            Order = await _context.Order.Include(s => s.Items).SingleOrDefaultAsync(m => m.ID == id);
 
             if (Order == null)
             {

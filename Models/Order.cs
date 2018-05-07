@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,7 +16,8 @@ namespace DDSWebstore.Models
         [DataType(DataType.Currency)]
          public float Price{get; set;}
     
-        
+        public virtual IList<BoughtItem> Items { get; set; }
+            
 
     }
 }
