@@ -31,7 +31,11 @@ namespace DDSWebstore.Pages.Items
         [BindProperty]
         public List <IFormFile> AddImage {set; get;}
 
-        //public string[] urlArray {get; set;}
+        [BindProperty]
+        public string[] urlArray {get; set;}
+
+        [BindProperty]
+        public string IndexText {get; set;}
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -45,8 +49,12 @@ namespace DDSWebstore.Pages.Items
             {
                 return NotFound();
             }
-           // urlArray = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, 
-           //     Path.Combine("uploads", "ImageFolder_" + Item.FID)));
+            urlArray = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, 
+                Path.Combine("uploads", "ImageFolder_" + Item.FID)));
+            for (int i = 0; i < urlArray.Length; i++) 
+            {
+                urlArray[i] = urlArray[i].Replace(_hostingEnvironment.WebRootPath, "..\\");
+            }
             return Page();
         }
 
@@ -58,6 +66,38 @@ namespace DDSWebstore.Pages.Items
             }
 
             var itemToUpdate = await _context.Item.FindAsync(id);
+            
+            urlArray = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, 
+                Path.Combine("uploads", "ImageFolder_" + itemToUpdate.FID)));
+            
+            // Delete Image
+            if (IndexText != null) 
+            {
+                List<string> indexList = IndexText.Split(",").ToList();
+                DbSet<Image> DbSetCopy = _context.Image;
+                if (indexList.Count != 0)
+                {
+                    foreach (var entity in DbSetCopy)
+                    {
+                        string[] entityUrlList = entity.ImageURL.Split("\\");
+                        for (int i = 0; i < indexList.Count - 1; i++)
+                        {   
+                            string url = urlArray[int.Parse(indexList[i])];
+                            string[] fileName = url.Split("\\");
+                            Console.WriteLine(url);
+                            if (entityUrlList[entityUrlList.Length - 1].Equals(fileName[fileName.Length - 1]))
+                            {
+                               _context.Image.Remove(entity);
+                               FileInfo f = new FileInfo(@url);
+                               f.Delete();
+
+                            }
+                        }
+                    }
+                }   
+            }
+
+            // Add Image
             ArrayList images = new ArrayList();
             if (this.AddImage != null) 
             {
