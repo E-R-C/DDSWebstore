@@ -9,7 +9,7 @@
 			
             <div class="col-md-8">
 				@{
-				double sum = 0.0;
+				 double sum = 0.0;
 
 				if(@Model.Item.LongCount() == 0){
 				<div class="emptyCart">
@@ -50,7 +50,9 @@
             	<div style="padding-left:5px; padding-top:5px;" id="paypal-button-container"></div>
 			</div>
 		</div>
+		@Html.AntiForgeryToken()
 	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
     <script>
         paypal.Button.render({
 
@@ -71,34 +73,33 @@
             commit: true,
 
             payment: function(data, actions) {
-
                 return actions.payment.create({
                     payment: {
                         transactions: [
                             {
-                                amount: { total: "@sum", currency: 'USD' }
+                                amount: { total: "@Math.Round(sum,2)", currency: 'USD' }
                             }
                         ]
                     }
                 });
             },
 
-            onAuthorize: function(data, actions) {
-
-                return actions.payment.execute().then(function() {
+            onAuthorize: function(pdata, actions) 
+			{
+                return actions.payment.execute().then(function() 
+				{
                     window.alert('Payment Complete!');
-                });
-
-				return actions.payment.get().then(function(data) {
-
-					var shipping = data.payer.payer_info.shipping_address;
-
-                document.querySelector('#recipient').innerText = shipping.recipient_name;
-                document.querySelector('#address').innerText     = shipping.line1;
-                document.querySelector('#city').innerText      = shipping.city;
-                document.querySelector('#state').innerText     = shipping.state;
-                document.querySelector('#zip').innerText      = shipping.postal_code;
-				});
+					actions.payment.get().then(
+						function(data) {
+							post('/OrderConfirmation', {
+							name: data.payer.payer_info.shipping_address.recipient_name, 
+							address: data.payer.payer_info.shipping_address.line1,
+							city: data.payer.payer_info.shipping_address.city,
+							state: data.payer.payer_info.shipping_address.state,
+							zip: data.payer.payer_info.shipping_address.postal_code,
+							}
+							)});
+						});	
             }, 
 
 			onCancel: function(data, actions) {
@@ -106,6 +107,7 @@
 			},
 
 			onError: function(data, actions) {
+				console.log(data);
 				return window.alert('Payment failed. Refresh page and try again.');
 			},
 

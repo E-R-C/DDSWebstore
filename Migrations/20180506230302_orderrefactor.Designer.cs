@@ -10,8 +10,8 @@ using System;
 namespace DDSWebstore.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20180419171656_Images")]
-    partial class Images
+    [Migration("20180506230302_orderrefactor")]
+    partial class orderrefactor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -78,8 +78,6 @@ namespace DDSWebstore.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<long>("ImageSize1");
-
                     b.Property<string>("Location");
 
                     b.Property<string>("Name");
@@ -98,13 +96,17 @@ namespace DDSWebstore.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("city");
+                    b.Property<string>("City");
 
-                    b.Property<string>("state");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("streetAddress");
+                    b.Property<float>("Price");
 
-                    b.Property<int>("zipcode");
+                    b.Property<string>("State");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<int>("Zipcode");
 
                     b.HasKey("ID");
 

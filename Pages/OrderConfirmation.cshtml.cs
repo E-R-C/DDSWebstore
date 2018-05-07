@@ -6,41 +6,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DDSWebstore.Models;
-using Microsoft.AspNetCore.Http;
 
 namespace DDSWebstore.Pages
 {
-    public class CartModel : PageModel{
+    public class OrderConfirmModel : PageModel
+    {
         private readonly DDSWebstore.Models.MyDBContext _context;
-        public List<int> cookieResults;
-        public static string ddsCookie;
 
-        public CartModel(DDSWebstore.Models.MyDBContext context)
+        public OrderConfirmModel(DDSWebstore.Models.MyDBContext context)
         {
             _context = context;
         }
 
-        public IList<Item> Item { get;set; }
-        public async Task OnGetAsync()
-        { 
-            CartModel.ddsCookie = Request.Cookies["ddsCookie"];
+        public List<int> cookieResults;
+        public static string ddsCookie;
+        public IList<Item> Items { get;set; }
 
-            this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
-            Console.Write(" ");
-            Console.Write(this.cookieResults);
-            Console.Write(" ");
-            var  items = _context.Item.Where(t => cookieResults.Contains(t.ID));
-            // var items = _context.Item.Join(cookieResults, up => up.ID, id => id, (up, id) => up);
-            
-            Item = await items.ToListAsync();
-        }
-        [HttpPost]
-        public async Task<IActionResult> OnPostAsync (string name, string address,
-         string city, string state, int zip){
+        public IList<BoughtItem> BoughtItem {get; set;}
+
+        [HttpPost, HttpGet]
+        public async Task<IActionResult> OnGetAsync(string name, string address,
+         string city, string state, int zip)
+        {
+
             ddsCookie = Request.Cookies["ddsCookie"];
             Console.WriteLine(" INSIDE ASYNC TASK POST");
             var items = _context.Item.Where(t => cookieResults.Contains(t.ID));
-            
+            this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
+
             float totPrice = 0;
             foreach (Item i in items){
                 totPrice += i.Price;
@@ -59,8 +52,19 @@ namespace DDSWebstore.Pages
                 _context.Item.Remove(i);
             }
             await _context.SaveChangesAsync();
-            return RedirectToPage("./OrderConfirmation");
-         }
+            return RedirectToPage("/Index");
+        }
+
+        private BoughtItem convertItem(Item i, int orderID){
+            return new BoughtItem {
+                ID = i.ID,
+                Name = i.Name,
+                Description = i.Description,
+                Location = i.Location,
+                OrderID = orderID,
+                Price = i.Price
+            };
+        }
         private List<int> parseCookieResults(string results){
             results = results.Trim();
             results = results.Substring(1, results.Length - 1);
@@ -71,16 +75,6 @@ namespace DDSWebstore.Pages
                 toReturn.Add(int.Parse(c));
             }
             return toReturn;
-        }
-        private BoughtItem convertItem(Item i, int orderID){
-            return new BoughtItem {
-                ID = i.ID,
-                Name = i.Name,
-                Description = i.Description,
-                Location = i.Location,
-                OrderID = orderID,
-                Price = i.Price
-            } ;
         }
     }
 }

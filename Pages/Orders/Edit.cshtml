@@ -15,24 +15,34 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Order.ID" />
             <div class="form-group">
-                <label asp-for="Order.streetAddress" class="control-label"></label>
-                <input asp-for="Order.streetAddress" class="form-control" />
-                <span asp-validation-for="Order.streetAddress" class="text-danger"></span>
+                <label asp-for="Order.Name" class="control-label"></label>
+                <input asp-for="Order.Name" class="form-control" />
+                <span asp-validation-for="Order.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Order.city" class="control-label"></label>
-                <input asp-for="Order.city" class="form-control" />
-                <span asp-validation-for="Order.city" class="text-danger"></span>
+                <label asp-for="Order.StreetAddress" class="control-label"></label>
+                <input asp-for="Order.StreetAddress" class="form-control" />
+                <span asp-validation-for="Order.StreetAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Order.state" class="control-label"></label>
-                <input asp-for="Order.state" class="form-control" />
-                <span asp-validation-for="Order.state" class="text-danger"></span>
+                <label asp-for="Order.City" class="control-label"></label>
+                <input asp-for="Order.City" class="form-control" />
+                <span asp-validation-for="Order.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Order.zipcode" class="control-label"></label>
-                <input asp-for="Order.zipcode" class="form-control" />
-                <span asp-validation-for="Order.zipcode" class="text-danger"></span>
+                <label asp-for="Order.State" class="control-label"></label>
+                <input asp-for="Order.State" class="form-control" />
+                <span asp-validation-for="Order.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Zipcode" class="control-label"></label>
+                <input asp-for="Order.Zipcode" class="form-control" />
+                <span asp-validation-for="Order.Zipcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Price" class="control-label"></label>
+                <input asp-for="Order.Price" class="form-control" />
+                <span asp-validation-for="Order.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />

@@ -13190,23 +13190,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/boscondemeye/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/home/eric/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/boscondemeye/Desktop/DDSWebstore/DDSWebstore.csproj",
+      "projectUniqueName": "/home/eric/School/Databases/DDSWebstore/DDSWebstore.csproj",
       "projectName": "DDSWebstore",
-      "projectPath": "/Users/boscondemeye/Desktop/DDSWebstore/DDSWebstore.csproj",
-      "packagesPath": "/Users/boscondemeye/.nuget/packages/",
-      "outputPath": "/Users/boscondemeye/Desktop/DDSWebstore/obj/",
+      "projectPath": "/home/eric/School/Databases/DDSWebstore/DDSWebstore.csproj",
+      "packagesPath": "/home/eric/.nuget/packages/",
+      "outputPath": "/home/eric/School/Databases/DDSWebstore/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/boscondemeye/.nuget/NuGet/NuGet.Config"
+        "/home/eric/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -13257,13 +13257,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/boscondemeye/Desktop/DDSWebstore/obj/DDSWebstore.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

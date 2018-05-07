@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DDSWebstore.Migrations
 {
-    public partial class init : Migration
+    public partial class orderrefactor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,10 +63,12 @@ namespace DDSWebstore.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    city = table.Column<string>(nullable: true),
-                    state = table.Column<string>(nullable: true),
-                    streetAddress = table.Column<string>(nullable: true),
-                    zipcode = table.Column<int>(nullable: false)
+                    City = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Price = table.Column<float>(nullable: false),
+                    State = table.Column<string>(nullable: true),
+                    StreetAddress = table.Column<string>(nullable: true),
+                    Zipcode = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

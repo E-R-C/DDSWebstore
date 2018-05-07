@@ -77,8 +77,6 @@ namespace DDSWebstore.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("ImageName");
-
                     b.Property<string>("Location");
 
                     b.Property<string>("Name");
@@ -97,13 +95,17 @@ namespace DDSWebstore.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("city");
+                    b.Property<string>("City");
 
-                    b.Property<string>("state");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("streetAddress");
+                    b.Property<float>("Price");
 
-                    b.Property<int>("zipcode");
+                    b.Property<string>("State");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<int>("Zipcode");
 
                     b.HasKey("ID");
 
