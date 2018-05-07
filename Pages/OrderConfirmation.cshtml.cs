@@ -23,7 +23,7 @@ namespace DDSWebstore.Pages
         public IList<Item> Items { get;set; }
 
         public IList<BoughtItem> BoughtItem {get; set;}
-
+        public Order Order;
         [HttpPost, HttpGet]
         public async Task<IActionResult> OnGetAsync(string name, string address,
          string city, string state, int zip)
@@ -38,7 +38,7 @@ namespace DDSWebstore.Pages
             foreach (Item i in items){
                 totPrice += i.Price;
             }
-            Order order = new Order{
+            Order = new Order{
                 Name = name,
                 StreetAddress = address,
                 City = city,
@@ -46,13 +46,13 @@ namespace DDSWebstore.Pages
                 Zipcode = zip,
                 Price = (float) Math.Round(totPrice,2)
             };
-            _context.Order.Add(order);
+            _context.Order.Add(Order);
             foreach (Item i in items){
-                _context.BoughtItem.Add(convertItem(i,order.ID));
+                _context.BoughtItem.Add(convertItem(i,Order.ID));
                 _context.Item.Remove(i);
             }
             await _context.SaveChangesAsync();
-            return RedirectToPage("/Index");
+            return Page();
         }
 
         private BoughtItem convertItem(Item i, int orderID){
@@ -66,12 +66,14 @@ namespace DDSWebstore.Pages
             };
         }
         private List<int> parseCookieResults(string results){
-            results = results.Trim();
-            results = results.Substring(1, results.Length - 1);
-            String[] nums = results.Split(",");
+            results = results.Trim().Trim(']').Trim('[');
+            // results = results.Substring(1, results.Length - 2);
+            Console.WriteLine(results);
+            string[] nums = results.Split(",");
+            Console.Write(nums);
 
             List<int> toReturn = new List<int>();
-            foreach ( var c in nums) {
+            foreach ( string c in nums) {
                 toReturn.Add(int.Parse(c));
             }
             return toReturn;

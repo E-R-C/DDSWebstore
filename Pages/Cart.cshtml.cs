@@ -62,12 +62,14 @@ namespace DDSWebstore.Pages
             return RedirectToPage("./OrderConfirmation");
          }
         private List<int> parseCookieResults(string results){
-            results = results.Trim();
-            results = results.Substring(1, results.Length - 1);
-            String[] nums = results.Split(",");
+            results = results.Trim().Trim(']').Trim('[');
+            // results = results.Substring(1, results.Length - 2);
+            Console.WriteLine(results);
+            string[] nums = results.Split(",");
+            Console.Write(nums);
 
             List<int> toReturn = new List<int>();
-            foreach ( var c in nums) {
+            foreach ( string c in nums) {
                 toReturn.Add(int.Parse(c));
             }
             return toReturn;

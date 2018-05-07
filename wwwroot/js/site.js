@@ -177,7 +177,7 @@ function defineCookiesValues(){
 
 function parseCookieResults(l){
     console.log(l);
-    //return JSON.parse(l);
+    return JSON.parse(l);
 }
 
 function without(array, what){
@@ -211,31 +211,31 @@ Array.prototype.unique = function() {
     });
   }
 
-//   function countCookies() {
-//       if (Cookies.get("ddsCookie") == null) {
-//           return 0;
-//       }
-//       var cookie = Cookies.get("ddsCookie");
-//       var c = parseCookieResults(cookie);
-//       return c.unique().length;
-//   }
+  function countCookies() {
+      if (Cookies.get("ddsCookie") == null) {
+          return 0;
+      }
+      var cookie = Cookies.get("ddsCookie");
+      var c = parseCookieResults(cookie);
+      return c.unique().length;
+  }
 
-//   function setBadge() {
-//       var b = document.getElementById("target");
-//       var c = countCookies();
-//       if (c == 0) {
-//           b.style.visibility = 'hidden';
-//       } else {
-//           b.style.visibility = 'visible';
-//           b.innerHTML = parseInt(c);
-//       }
-//   }
+  function setBadge() {
+      var b = document.getElementById("target");
+      var c = countCookies();
+      if (c == 0) {
+          b.style.visibility = 'hidden';
+      } else {
+          b.style.visibility = 'visible';
+          b.innerHTML = parseInt(c);
+      }
+  }
 
 function clearCart(){
     $("#cartTable > tbody").empty();
     cookiesValue = [];
     Cookies.set("ddsCookie", cookiesValue);
-    //setBadge();
+    setBadge();
 }
 
 
@@ -250,7 +250,7 @@ function incrementValue() {
 
 $(document).ready(function () {
     defineCookiesValues();
-    //setBadge();
+    setBadge();
     // cookiesValue = [];
     // Cookies.set("ddsCookie", cookiesValue);
     var $windowSize = 5000;

@@ -728,3 +728,147 @@ div.row.list-group {
 .btn {
     float: right;
 } */
+
+a {
+    text-decoration: none;
+  }
+  a:-webkit-any-link {
+    text-decoration: none; 
+  }
+  hr {
+    border: 1px solid #ddd; 
+  }
+  table {
+    border-collapse: collapse; 
+    background-color: #fff; 
+  }
+  span {
+    display: block; 
+    color: #333; 
+    font-family: 'Proxima Nova', san-serif;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .clearfix {
+    clear: both; 
+  }
+  .mcnCaptionBottomImageContent {
+    width: 600px; 
+  }
+  .order-placed {
+    width: 100%; 
+    margin-bottom: 25px; 
+  }
+  .product-image {
+    width: 200px; 
+    padding: 20px; 
+  }
+  .text-container {
+    padding: 20px 10px; 
+  }
+  .notice-container{
+    border: 2px solid #ddd; 
+    width: 90%; 
+    text-transform: none; 
+    display: block; 
+    margin: 0 auto; 
+    margin-bottom: 15px; 
+    text-align: center; 
+  }
+  .florist-image {
+    width: 50px;
+    border-radius: 25px; 
+    display: block; 
+    margin: 0 auto 5px auto; 
+  }
+  .shop-name {
+    font-weight: 700; 
+  }
+  .delivery-info {
+    width: 90%; 
+    margin: 0 auto 20px auto; 
+  }
+  .delivery-info--title,
+  .order-summary--title {
+    text-transform: uppercase; 
+    font-weight: 700; 
+  }
+  .order-summary--title {
+    width: 90%; 
+    margin: 0 auto; 
+  }
+  .delivery-info--recipient,
+  .delivery-info--card,
+  .delivery-info--instr,
+  .delivery-info--subs,
+  .order-detail--title {
+    font-weight: 700;
+  }
+  .order-summary-contact {
+    float: left; 
+    width: 60%; 
+  }
+  .order-summary-total {
+    float:right; 
+    width: 40%; 
+  }
+  .order-summary-btn { 
+    margin: 20px; 
+    color: #369ea3;
+    padding: 8px 20px; 
+    border: 1px solid #369ea3; 
+    border-radius: 4px; 
+  }
+  
+  .order-summary-container, 
+  .questions-container {
+    margin: 15px auto;
+    width: 90%; 
+    border-top: 2px solid #ddd; 
+  }
+  .order-summary-container{
+    padding-top: 20px; 
+  }
+  .florist-questions,
+  .billing-questions,
+  .chatnow {
+    width: 50%; 
+    text-align:center;
+  }
+  .florist-questions {
+    margin: 20px auto; 
+    float:left; 
+  }
+  .billing-questions {
+    margin: 20px auto; 
+    float:right;
+  }
+  .chatnow {
+    margin: 0 auto 15px auto; 
+    text-decoration: underline; 
+    color: #0082B5; 
+  }
+  .fine-print {
+    text-align: center; 
+    font-size: 10px; 
+    font-weight: 700; 
+  }
+  .footer { 
+    background-color: #369ea3;
+    padding: 20px 0; 
+  }
+  .footer span {
+    display: block; 
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    padding: 10px 0; 
+    color: #fff; 
+    text-transform: none; 
+    font-size: 10px; 
+  }
+  i {
+    padding: 0 15px
+  }
+  
