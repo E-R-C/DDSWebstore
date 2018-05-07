@@ -177,7 +177,11 @@ function defineCookiesValues(){
 
 function parseCookieResults(l){
     console.log(l);
-    return JSON.parse(l);
+    if (l){
+        return JSON.parse(l);
+    } else {
+        return [];
+    }
 }
 
 function without(array, what){
