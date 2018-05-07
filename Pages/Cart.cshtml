@@ -13,7 +13,7 @@
 
 				if(@Model.Item.LongCount() == 0){
 				<div class="emptyCart">
-					<p>  Your cart is empty !</p>
+					<p>  Your cart is empty. </p>
 				</div>
 				}
 				else {
@@ -72,7 +72,7 @@
 							padding-top:2em;
 							color:dodgerblue">
 				   @{sum = (decimal) Math.Round(sum,2);}
-					Total : $@sum
+					Total: $ @sum.ToString("0.00")
 				</div>
             	<div style="padding-left:5px; padding-top:5px;" id="paypal-button-container"></div>
 			</div>
@@ -104,7 +104,7 @@
                     payment: {
                         transactions: [
                             {
-                                amount: { total: "@Math.Round(sum,2)", currency: 'USD' }
+                                amount: { total: "@sum", currency: 'USD' }
                             }
                         ]
                     }
