@@ -10,7 +10,7 @@ using System;
 namespace DDSWebstore.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20180507052441_init")]
+    [Migration("20180507054208_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -44,6 +44,7 @@ namespace DDSWebstore.Pages
             }
             List<string> sorted = tags.ToList();
             sorted.Sort();
+            Console.WriteLine(sorted.ToString());
 
 
             Tags = sorted;

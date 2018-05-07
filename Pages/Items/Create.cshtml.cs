@@ -71,11 +71,14 @@ namespace DDSWebstore.Pages.Items
                     images.Add(new Image{ImageURL=filePath2});
                 }
             }
+            Item.Tags = standardizeTags(Item.Tags);
             _context.Item.Add(Item);
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
                 _context.Image.Add(i);
             }
+
+        
             
             
             await _context.SaveChangesAsync();
@@ -93,7 +96,7 @@ namespace DDSWebstore.Pages.Items
                 } else {
                     toReturn.Append(splitTags[i].First().ToString().ToUpper() + splitTags[i].Substring(1) + ",");
                 }
-                System.Console.WriteLine(splitTags[i]);
+                System.Console.WriteLine(toReturn.ToString());
             }
             return toReturn.ToString().Substring(0,toReturn.ToString().Length - 1);
             
