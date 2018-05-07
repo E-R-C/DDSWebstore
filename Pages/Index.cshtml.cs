@@ -18,6 +18,8 @@ namespace DDSWebstore.Pages
             _context = context;
         }
 
+        public string Search {get; set;}
+
         public IList<Item> Item { get;set; }
         public IList<DDSWebstore.Models.Image> Image { get;set; }
 
@@ -30,8 +32,24 @@ namespace DDSWebstore.Pages
 
             if (!String.IsNullOrEmpty(search))
             {
-                items = items.Where(s => s.Name.Contains(search) || s.Description.Contains(search));
+                if (search.Equals("All")) {
+                     items = from i in _context.Item select i;
+                }
+                else {
+                    string l_search = search.ToLower();
+                    if (search.Length > 1) {
+                        items = items.Where(s => s.Name.ToLower().Contains(l_search) || s.Description.ToLower().Contains(l_search) 
+                            || s.Tags.Contains(search.First().ToString().ToUpper() + search.Substring(1)));
+                    } else {
+                        items = items.Where(s => s.Name.ToLower().Contains(l_search) || s.Description.ToLower().Contains(l_search) 
+                            || s.Tags.Contains(search.First().ToString().ToUpper()));
+                    }
+                }
+                
             }
+            
+            Search = search;
+            
 
             Item = await items.Include(i => i.Images).ToListAsync();
             
@@ -47,8 +65,9 @@ namespace DDSWebstore.Pages
             List<string> sorted = tags.ToList();
             sorted.Sort();
             Console.WriteLine(sorted.ToString());
-
-
+            if (!sorted.Contains("All")) {
+                sorted.Insert(0, "All");
+            }
             Tags = sorted;
 
         }

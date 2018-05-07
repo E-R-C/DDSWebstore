@@ -166,6 +166,15 @@ li p.navbar-btn {
 .navbar-header a.navbar-brand:hover {
     color: black;
 }
+
+.underline {
+    margin-top:5vh;
+    border-bottom: dashed black;
+}
+.feat-items {
+    font-family: 'Bitter', serif;
+    font-size: 5vh;
+}
 .nav.navbar-nav li a{
     font-family: 'Assistant', sans-serif;
     font-size: 1.6em;
@@ -669,7 +678,7 @@ div.row.list-group {
     
     background-size: contain;
     position: absolute;
-    border: solid thin black;
+    /* border: solid thin black; */
 
     background-position: center;
     background-repeat: no-repeat;
@@ -682,7 +691,7 @@ div.row.list-group {
 .alt-image {
     display: block;
     max-width: 50%;
-    min-width:50%;
+    min-width:35%;
     max-height:100%;
     height: auto;
     min-height: 80px;
@@ -771,6 +780,11 @@ div.row.list-group {
 
 
 .editImg {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.mainImg {
     max-height: 150px;
     max-width: 150px;
 }

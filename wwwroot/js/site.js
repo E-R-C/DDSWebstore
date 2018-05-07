@@ -302,6 +302,9 @@ $(document).ready(function () {
     $("input[type='checkbox']").change(function (e) {
         if ($(this).is(":checked")) {
             $(this).parent().addClass("highlight_row");
+            post('/', {
+                search: $(this).attr('value')
+            });
         } else {
             $(this).parent().removeClass("highlight_row");
         }
@@ -383,10 +386,17 @@ $(document).ready(function () {
     $(".selectable").selectable({
         selected: function () {
             var string = "";
-            $(".selectable img").each(function (index) {
+            $(".selectable .editImg").each(function (index) {
                 if ($(this).hasClass("ui-selected")) {
                     string += index + ",";
                     $("#index").val(string);
+                }
+            });
+
+            $(".selectable .mainImg").each(function (index) {
+                if ($(this).hasClass("ui-selected")) {
+                    $(this).siblings().removeClass("ui-selected");
+                    $("#mainIndex").val(index);
                 }
             });
         }

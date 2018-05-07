@@ -34,6 +34,12 @@
                 <input asp-for="Item.Price" class="form-control" />
                 <span asp-validation-for="Item.Price" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Item.Tags" class="control-label"></label>
+                <input asp-for="Item.Tags" class="form-control"/>
+                <span asp-validation-for="Item.Tags" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Item.FID" />
             <hr />
             <div class="form-group">
                 <label><b>Add Images</b></label>
@@ -52,11 +58,6 @@
                 <input id="index" asp-for="IndexText" class="form-control invisible" />
             </div>
             <hr />
-            <div class="form-group">
-                <label><b>Choose Main Image for Item</b></label>
-                <p>Main image is shown on frontpage for this item</p>
-                
-            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
