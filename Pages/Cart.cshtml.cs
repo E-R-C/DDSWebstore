@@ -75,13 +75,15 @@ namespace DDSWebstore.Pages
         private List<int> parseCookieResults(string results){
             results = results.Trim().Trim(']').Trim('[');
             // results = results.Substring(1, results.Length - 2);
-            Console.WriteLine(results);
+            Console.WriteLine("hshshhhsh: " + results + " prev was string");
             string[] nums = results.Split(",");
-            Console.Write(nums);
+            Console.Write("NUms: " + nums);
 
             List<int> toReturn = new List<int>();
             foreach ( string c in nums) {
-                toReturn.Add(int.Parse(c));
+                if(c.Length > 0){
+                    toReturn.Add(int.Parse(c));
+                }
             }
             return toReturn;
         }
