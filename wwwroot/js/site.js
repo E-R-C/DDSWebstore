@@ -368,7 +368,19 @@ $(document).ready(function () {
             $list.empty();
             document.getElementById('myModal').style.display = "none";
         }
-    } 
+    }
+
+    $(".selectable").selectable({
+        selected: function () {
+            var string = "";
+            $(".selectable img").each(function (index) {
+                if ($(this).hasClass("ui-selected")) {
+                    string += index + ",";
+                    $("#index").val(string);
+                }
+            });
+        }
+    });
 });
 
 function post(path, params) {
