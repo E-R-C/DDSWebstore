@@ -13190,23 +13190,40 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/home/eric/.nuget/packages/": {},
     "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+=======
+    "/Users/anna/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+>>>>>>> 7c04560ae2bff2826476d7c2c6ac458a75e5e1b6
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/home/eric/School/Databases/DDSWebstore/DDSWebstore.csproj",
       "projectName": "DDSWebstore",
       "projectPath": "/home/eric/School/Databases/DDSWebstore/DDSWebstore.csproj",
       "packagesPath": "/home/eric/.nuget/packages/",
       "outputPath": "/home/eric/School/Databases/DDSWebstore/obj/",
+=======
+      "projectUniqueName": "/Users/anna/databases/DDSWebstore/DDSWebstore.csproj",
+      "projectName": "DDSWebstore",
+      "projectPath": "/Users/anna/databases/DDSWebstore/DDSWebstore.csproj",
+      "packagesPath": "/Users/anna/.nuget/packages/",
+      "outputPath": "/Users/anna/databases/DDSWebstore/obj/",
+>>>>>>> 7c04560ae2bff2826476d7c2c6ac458a75e5e1b6
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "/home/eric/.nuget/NuGet/NuGet.Config"
+=======
+        "/Users/anna/.nuget/NuGet/NuGet.Config"
+>>>>>>> 7c04560ae2bff2826476d7c2c6ac458a75e5e1b6
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

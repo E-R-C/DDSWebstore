@@ -4,24 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!-- <div class="container">
-    <div class="row" style="padding-top:20px;padding-bottom:50px;">
-        <div class="col-sm-4">
-            <a href="https://imgur.com/hy8FkC6"><img src="https://i.imgur.com/hy8FkC6.png" title="source: imgur.com" /></a>
-        </div>
-        <div class="col-sm-8">
-            <h1> About Us: </h1>
-            <p>
-                The Conway Human Development Center (CHDC) is one of Arkansas’ five state-managed residential training facilities
-                for people with intellectual disabilities. It is located on a 409.25-acre site in the city of Conway. CHDC’s
-                licensed residential capacity is 518 individuals with a functional capacity of approximately 480 individuals.
-                The Conway Human Development Center is licensed by the Arkansas Office of Long Term Care as an Intermediate Care 
-                Facility/Serving Individuals with Intellectual Disabilities (ICF/IID). CHDC has been nationally accredited since 
-                1986 and accredited by the Commission on Accreditation of Rehabilitation Facilities (CARF) since 1998.
-            </p>
-        </div>
-    </div>
-</div> -->
 <div class="row">
     <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="jumbotron main" >
@@ -47,30 +29,10 @@
                 <div class="jumbotron small-bottom">
 
                 </div>
-
-<!-- <<<<<<< Updated upstream -->
-           
-        
-<!-- =======
->>>>>>> Stashed changes -->
             </div>
         </div>
     </div>
 </div>
-<!-- 
-<div class="search-container">
-    <form class="navbar-form">
-            <div class="input-group">
-                <span>
-                    <input class="form-control" type="text" name="search" size="100" placeholder="Search">
-                    <button type="submit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
-    </form>
-</div> -->
-
 <div class="container" style="width:85%">
 
 <div class="row search">
@@ -104,23 +66,7 @@
 <div class="container" style="width:100%;padding-left:15px;">
     <div class="row" style="padding-left:15px;">
         <div class="col-sm-3" style="padding:0;">
-<!-- 
-            <div class="panel-group" >
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse1">Categories</a>
-                    </h4>
-                    </div>
-                    <div id="collapse1" class="panel-collapse collapse">
-                    <ul class="list-group">
-                        <li class="list-group-item">One</li>
-                        <li class="list-group-item">Two</li>
-                        <li class="list-group-item">Three</li>
-                    </ul>
-                    </div>
-                </div>
-             </div>  -->
+
              <div class="panel panel-primary accordion"> <!-- Panel (collapasable) -->
 
                  <div class="panel-heading"> <!-- Panel head -->
@@ -206,29 +152,32 @@
             @{var i = 0;}
             @foreach (var item in Model.Item) {
                 <div class="item col-xs-12 col-sm-6 col-md-4" >
+                   <div class="thumbnail_parent">
                     <div class="thumbnail">
-                        <img class="item-image" src="@item.Images[0].ImageURL" alt="" />
+                        <img class="bounding-box item-image" p-price="@item.Price" p-desc="@item.Description" p-id="@item.ID" p-title="@item.Name" p-image="@item.Images[0].ImageURL"  style="background-image: url(@item.Images[0].ImageURL)" alt="" />
                         @foreach (var image in item.Images)
                          {
                              <p class="urls">@Html.DisplayFor(modelItem => image.ImageURL)</p>
                          }
-                        <div class="caption">
-                            <h4 class="product-title">
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </h4>
-                            <p class="product-desc">@Html.DisplayFor(modelItem => item.Description)</p>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-6">
-                                    <p class="price">
-                                        @Html.DisplayFor(modelItem => item.Price)
-                                    </p>
-                                    <p class="id">
-                                        @Html.DisplayFor(modelItem => item.ID)
-                                    </p>
-                                </div>
+                    </div>
+                    <div class="caption">
+                        <h4 class="product-title">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </h4>
+                        <p class="product-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="price">
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </p>
+                                <p class="id">
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </p>
                             </div>
                         </div>
                     </div>
+                    </div>
+              
                 </div>          
             }
           
@@ -254,46 +203,53 @@
             <header class="modal-item-title"></header>
         </div> -->
         <!--Body of Modal-->
-        <div class="container-fluid modal-subcontent">
-            <div class="row">
-                <div class="col-sm-7">
-                    <img class="modal-image" src="" />
-                </div>
-                <div class="col-sm-5 modal-wrapper">
-                    <div class="row">
-                        <div class="col-sm-12" style="padding:0;">
-                            <div class="row modal-header">
-                                <header class="modal-item-title"> </header>
+        <div class="please" style="max-height:100%;">
+            <div class="container-fluid modal-subcontent">
+                <div class="row">
+                    <div class="col-sm-7">
+                        
+                        <div class="thumbnail modal">
+                            <img class="bounding-box modal-image"  />
+                        </div>
+                    
+                    </div>
+                    <div class="col-sm-5 modal-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12" style="padding:0;">
+                                <div class="row modal-header">
+                                    <header class="modal-item-title"> </header>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12" style="padding:0;">
-                            <p class="modal-item-price"></p>
-                            
+                        <div class="row">
+                            <div class="col-sm-12" style="padding:0;">
+                                <p class="modal-item-price"></p>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="modal-item-desc"></p>
+                        </div>
+                        <div class="row">
+                            <a class="btn btn-success modal-cart-button">Add to Cart</a>
+                        </div>
+                        <div class="row">
+                            <p class="modal-item-id"></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <p class="modal-item-desc"></p>
+                </div>
+                <div class="row" style="margin-bottom:2em;">
+                    <div class="col-sm-7">
+                        <ul class="list-inline">
+                        
+                        </ul>
                     </div>
-                    <div class="row">
-                        <a class="btn btn-success modal-cart-button">Add to Cart</a>
+                    <div class="col-sm-5">
+
                     </div>
-                    <div class="row">
-                        <p class="modal-item-id"></p>
-                    </div>
+                    
                 </div>
             </div>
-            <div class="row" style="margin-bottom:2em;">
-                <div class="col-md-7">
-                    <ul class="list-inline">
-                    </ul>
-                </div>
-                <div class="col-md-5">
-
-                </div>
-            </div>
-
 
         </div>
     </div>
