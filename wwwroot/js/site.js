@@ -238,6 +238,7 @@ function clearCart(){
     Cookies.set("ddsCookie", cookiesValue);
     setBadge();
     location.reload();
+
 }
 
 
@@ -328,10 +329,13 @@ $(document).ready(function () {
 
         //populate image on modal
         $list = modalContent.find('.list-inline');
-        for (var i = 0; i < urlArray.length; i++) {
-            alt_img_display = 'background-image: url(' + urlArray[i] + ')';
-            console.log(urlArray[i]);
-            $list.append('<li class="alt-image"> <img class="bounding-box modal-alt-image" style="background-image: url(' + urlArray[i] + ')"' + ' /></li >');
+        if (urlArray.length > 1) {
+            for (var i = 0; i < urlArray.length; i++) {
+
+                alt_img_display = 'background-image: url(' + urlArray[i] + ')';
+                console.log(urlArray[i]);
+                $list.append('<li class="alt-image"> <img class="bounding-box modal-alt-image" style="background-image: url(' + urlArray[i] + ')"' + ' /></li >');
+            }
         }
 
         modal.css("display", "block");
@@ -370,7 +374,42 @@ $(document).ready(function () {
             $list.empty();
             document.getElementById('myModal').style.display = "none";
         }
-    } 
+    }
+
+    $(".selectable").selectable({
+        selected: function () {
+            var string = "";
+            $(".selectable img").each(function (index) {
+                if ($(this).hasClass("ui-selected")) {
+                    string += index + ",";
+                    $("#index").val(string);
+                }
+            });
+        }
+    });
 });
 
+function post(path, params) {
+    method = "GET"; 
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    var securityToken = $('[name=__RequestVerificationToken]').val();
+    console.log("securityToken + " + securityToken );
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+    form.setAttribute("__RequestVerificationToken", securityToken);
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+            form.appendChild(hiddenField);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
 

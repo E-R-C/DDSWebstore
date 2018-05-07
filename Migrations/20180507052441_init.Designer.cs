@@ -10,8 +10,8 @@ using System;
 namespace DDSWebstore.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20180419171656_Images")]
-    partial class Images
+    [Migration("20180507052441_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -78,7 +78,7 @@ namespace DDSWebstore.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<long>("ImageSize1");
+                    b.Property<string>("FID");
 
                     b.Property<string>("Location");
 
@@ -87,6 +87,8 @@ namespace DDSWebstore.Migrations
                     b.Property<float>("Price");
 
                     b.Property<int>("Quantity");
+
+                    b.Property<string>("Tags");
 
                     b.HasKey("ID");
 
@@ -98,13 +100,17 @@ namespace DDSWebstore.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("city");
+                    b.Property<string>("City");
 
-                    b.Property<string>("state");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("streetAddress");
+                    b.Property<float>("Price");
 
-                    b.Property<int>("zipcode");
+                    b.Property<string>("State");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<int>("Zipcode");
 
                     b.HasKey("ID");
 

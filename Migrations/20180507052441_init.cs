@@ -47,10 +47,12 @@ namespace DDSWebstore.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Description = table.Column<string>(nullable: true),
+                    FID = table.Column<string>(nullable: true),
                     Location = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<float>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false)
+                    Quantity = table.Column<int>(nullable: false),
+                    Tags = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,10 +65,12 @@ namespace DDSWebstore.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    city = table.Column<string>(nullable: true),
-                    state = table.Column<string>(nullable: true),
-                    streetAddress = table.Column<string>(nullable: true),
-                    zipcode = table.Column<int>(nullable: false)
+                    City = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Price = table.Column<float>(nullable: false),
+                    State = table.Column<string>(nullable: true),
+                    StreetAddress = table.Column<string>(nullable: true),
+                    Zipcode = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

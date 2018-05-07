@@ -39,6 +39,11 @@
                 <span asp-validation-for="Item.Price" class="text-danger"></span>
             </div>    
             <div class="form-group">
+                <label asp-for="Item.Tags" class="control-label"></label>
+                <input asp-for="Item.Tags" class="form-control" />
+                <span asp-validation-for="Item.Tags" class="text-danger"></span>
+            </div>    
+            <div class="form-group">
                 <label>Upload Image</label>
                 <input type="file" asp-for="Image" multiple/>
             </div>

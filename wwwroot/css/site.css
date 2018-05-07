@@ -125,7 +125,9 @@ nav.navbar.navbar-inverse div.container {
     display: block;
     max-width: 100%;
     height: auto;
+    font-family: 'Assistant', sans-serif;
     min-height:150px;
+    border: solid thin rgb(61, 23, 0);
     position: relative;
     overflow: hidden;
     padding: 34.37% 0 0 0; /* 34.37% = 100 / (w / h) = 100 / (640 / 220) */
@@ -135,7 +137,8 @@ nav.navbar.navbar-inverse div.container {
     display: block;
     max-width: 100%;
     height: auto;
-    min-width:3vw;
+    min-width:100%;
+    border: none;
     position: relative;
     overflow: hidden;
     padding: 34.37% 0 0 0;
@@ -179,7 +182,7 @@ li p.navbar-btn {
 }
 
 .nav.navbar-nav li a:hover {
-    color: rgb(219, 128, 0);
+    color: rgb(24, 121, 185);
     /* border: solid thin rgb(174, 147, 225);
     background: rgb(217, 217, 217);
     border-radius: 6px; */
@@ -187,7 +190,8 @@ li p.navbar-btn {
 }
 
 .nav.navbar-nav li a:hover .badge{
-    background-color: rgb(219, 128, 0);
+    background-color: rgb(24, 121, 185);
+
     color: black;
 }
 
@@ -208,6 +212,8 @@ li p.navbar-btn {
     white-space: nowrap;
     /* visibility: hidden; */
 }
+
+
 
 /* .set-ripple {
 	-webkit-animation: ripple 0.8s, color-change 0.8s;
@@ -245,7 +251,7 @@ li p.navbar-btn {
 }
 
 .jumbotron h1 {
-    margin-top: 2em;
+    margin-top: 1em;
     font-family: 'Bitter', serif;
 }
 
@@ -272,23 +278,28 @@ li p.navbar-btn {
 }
 
 .jumbotron.main {    
-    background-image: linear-gradient( rgba(33, 14, 0, 0.3), rgba(23, 10, 0, 0.8) ), url("../images/fake_examples/candles.jpg");
-    margin-top: 2em;
+    /* background-image: linear-gradient( rgba(33, 14, 0, 0.3), rgba(23, 10, 0, 0.8) ), url("../images/fake_examples/candles.jpg"); */
+    color: black;
+    background: white;
     margin-bottom: 2em;
-    min-height: 49em;
+    padding-bottom:2em;
+    margin-top: 2em;
+  
+    border-top: solid rgb(24, 121, 185);
+    border-bottom: solid rgb(24, 121, 185);
    
     
 }
 
 .jumbotron.small-top {
     background-image: linear-gradient( rgba(33, 14, 0, 0.1), rgba(23, 10, 0, 0.8) ), url("../images/fake_examples/basket.jpg");
-    min-height: 24em;
+    min-height: 40%;
     margin-top: 2em;
 }
 
 .jumbotron.small-bottom {
     background-image: linear-gradient( rgba(33, 14, 0, 0.1), rgba(23, 10, 0, 0.8) ), url("../images/fake_examples/scarf.jpg");
-    min-height: 24em;
+    min-height: 40%;
     margin-top:1em;
     margin-bottom: 2em;
 
@@ -447,8 +458,9 @@ li p.navbar-btn {
 }
 
 .panel-primary .panel-heading {
-    background-color: rgba(19, 91, 56, 0.661);
-    border-bottom-color: rgba(67, 32, 6, 0.387);
+    background-color: rgb(24, 121, 185);
+    border-bottom: dashed rgba(67, 32, 6, 0.387);
+    /* border-bottom-color: rgba(67, 32, 6, 0.387); */
 
 }
 div.row.list-group {
@@ -506,9 +518,46 @@ div.row.list-group {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-height:60%;
-    min-width:65%;
+    height:75%;
+    width:70%;
     
+}
+
+/* TODO add top padding when screen is large*/
+@media (min-width: 801px) {
+    .modal-content {
+        height: 55%;
+        margin-left: 0;
+        
+    }
+    .modal-subcontent {
+        margin-right: 2em;
+        margin-left: -2em;
+    }
+    /* .alt-image {
+        margin-top:3em;
+    } */
+    .modal-cart-button {
+        margin-top:3em;
+    }
+}
+@media (max-width: 800px) {
+    .modal-content {
+        height: 80%;
+       
+    }
+
+    .modal-subcontent {
+        margin-left:1em;
+        margin-right:1em;
+    }
+
+    .alt-image {
+        margin: 0;
+    }
+    .modal-cart-button {
+        margin: 0;
+    }
 }
 
 /* .modal-content div.jumbotron {
@@ -527,7 +576,9 @@ div.row.list-group {
 
 
 .modal-subcontent {
-    margin: 0 15%;
+    margin: 0;
+    margin-right: 1em;
+    margin-left: 1em;
 }
 
 .close {
@@ -576,14 +627,16 @@ div.row.list-group {
     width: 80%;
     /* margin-top:3em; */
     margin-bottom:1em;
+    
     height: 90%;
-    background-color: rgba(19, 91, 56, 0.661);
+    background-color: rgb(24, 121, 185);
+
     font-family: 'Assistant', sans-serif;
     border-color: rgb(66, 30, 5);
 }
 .modal-cart-button:hover {
     width: 80%;
-    background-color: rgba(22, 154, 90, 0.661);
+    background-color: rgba(6, 63, 80, 0.661);
     font-family: 'Assistant', sans-serif;
     border-color: rgb(66, 30, 5);
 
@@ -605,6 +658,7 @@ div.row.list-group {
     background-size: contain;
     position: absolute;
     background-position: center;
+    border: none;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
@@ -617,22 +671,23 @@ div.row.list-group {
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
-    width: 100%;
+    width: 50%;
 }
 
 
 
 .alt-image {
     display: block;
-    min-width: 100%;
+    max-width: 50%;
+    min-width:50%;
     height: auto;
-    min-height: 100px;
-    position: relative;
+    min-height: 80px;
+    /* position: relative; */
     overflow: hidden;
     
-    padding: 34.37% 0 0 0; 
-    margin-left:-4em;
-    margin-right:-4em;
+    padding: 0 0 0 0; 
+    margin-left:1em;
+    margin-right:1em;
     
 }
 
@@ -668,6 +723,12 @@ div.row.list-group {
 .search-container form.navbar-form {
     padding:0;
     margin:0;
+    float:right;
+
+}
+
+.form-control {
+    float: right;
 }
 
 
@@ -698,6 +759,39 @@ div.row.list-group {
 
 .modal-item-id {
     display: none;
+}
+
+.editElement {
+    display: inline;
+}
+
+
+.editImg {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+
+.selectable .ui-selecting {
+    border: 2px dashed #ff0000;
+}
+
+.selectable .ui-selected {
+    border: 2px solid #ff0000;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(255, 0, 0, 1);
+    box-shadow: 0px 0px 8px 0px rgba(255, 0, 0, 1);
+}
+
+.selectable img {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #ffffff;
+}
+
+.selected-items {
+    border: 2px solid #ff0000;
+    line-height: 32px;
 }
 
 .emptyCart {
@@ -784,3 +878,147 @@ div.row.list-group {
 .btn {
     float: right;
 } */
+
+a {
+    text-decoration: none;
+  }
+  a:-webkit-any-link {
+    text-decoration: none; 
+  }
+  hr {
+    border: 1px solid #ddd; 
+  }
+  table {
+    border-collapse: collapse; 
+    background-color: #fff; 
+  }
+  span {
+    display: block; 
+    color: #333; 
+    font-family: 'Proxima Nova', san-serif;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .clearfix {
+    clear: both; 
+  }
+  .mcnCaptionBottomImageContent {
+    width: 600px; 
+  }
+  .order-placed {
+    width: 100%; 
+    margin-bottom: 25px; 
+  }
+  .product-image {
+    width: 200px; 
+    padding: 20px; 
+  }
+  .text-container {
+    padding: 20px 10px; 
+  }
+  .notice-container{
+    border: 2px solid #ddd; 
+    width: 90%; 
+    text-transform: none; 
+    display: block; 
+    margin: 0 auto; 
+    margin-bottom: 15px; 
+    text-align: center; 
+  }
+  .florist-image {
+    width: 50px;
+    border-radius: 25px; 
+    display: block; 
+    margin: 0 auto 5px auto; 
+  }
+  .shop-name {
+    font-weight: 700; 
+  }
+  .delivery-info {
+    width: 90%; 
+    margin: 0 auto 20px auto; 
+  }
+  .delivery-info--title,
+  .order-summary--title {
+    text-transform: uppercase; 
+    font-weight: 700; 
+  }
+  .order-summary--title {
+    width: 90%; 
+    margin: 0 auto; 
+  }
+  .delivery-info--recipient,
+  .delivery-info--card,
+  .delivery-info--instr,
+  .delivery-info--subs,
+  .order-detail--title {
+    font-weight: 700;
+  }
+  .order-summary-contact {
+    float: left; 
+    width: 60%; 
+  }
+  .order-summary-total {
+    float:right; 
+    width: 40%; 
+  }
+  .order-summary-btn { 
+    margin: 20px; 
+    color: #369ea3;
+    padding: 8px 20px; 
+    border: 1px solid #369ea3; 
+    border-radius: 4px; 
+  }
+  
+  .order-summary-container, 
+  .questions-container {
+    margin: 15px auto;
+    width: 90%; 
+    border-top: 2px solid #ddd; 
+  }
+  .order-summary-container{
+    padding-top: 20px; 
+  }
+  .florist-questions,
+  .billing-questions,
+  .chatnow {
+    width: 50%; 
+    text-align:center;
+  }
+  .florist-questions {
+    margin: 20px auto; 
+    float:left; 
+  }
+  .billing-questions {
+    margin: 20px auto; 
+    float:right;
+  }
+  .chatnow {
+    margin: 0 auto 15px auto; 
+    text-decoration: underline; 
+    color: #0082B5; 
+  }
+  .fine-print {
+    text-align: center; 
+    font-size: 10px; 
+    font-weight: 700; 
+  }
+  .footer { 
+    background-color: #369ea3;
+    padding: 20px 0; 
+  }
+  .footer span {
+    display: block; 
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    padding: 10px 0; 
+    color: #fff; 
+    text-transform: none; 
+    font-size: 10px; 
+  }
+  i {
+    padding: 0 15px
+  }
+  
