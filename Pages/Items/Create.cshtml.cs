@@ -73,6 +73,7 @@ namespace DDSWebstore.Pages.Items
             }
             Item.Tags = standardizeTags(Item.Tags);
             _context.Item.Add(Item);
+            Item.Price = (decimal) Item.Price;
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
                 _context.Image.Add(i);

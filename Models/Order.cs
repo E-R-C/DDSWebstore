@@ -13,7 +13,7 @@ namespace DDSWebstore.Models
         public int Zipcode{get; set;}
         
         [DataType(DataType.Currency)]
-         public float Price{get; set;}
+         public decimal Price{get; set;}
     
         
 

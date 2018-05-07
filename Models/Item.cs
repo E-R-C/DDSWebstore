@@ -18,7 +18,7 @@ namespace DDSWebstore.Models
     public string FID {get; set;}
     
     [DataType(DataType.Currency)]
-    public float Price{get; set;}
+    public decimal Price{get; set;}
 
     // comma-separated string of 1+ tags
     public string Tags {get; set;}

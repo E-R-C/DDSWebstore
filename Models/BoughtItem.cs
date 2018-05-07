@@ -15,7 +15,7 @@ namespace DDSWebstore.Models
     public int OrderID{get; set;}
     
     [DataType(DataType.Currency)]
-    public float Price{get; set;}
+    public decimal Price{get; set;}
 
   }
 }

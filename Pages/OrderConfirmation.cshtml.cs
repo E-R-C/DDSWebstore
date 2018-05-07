@@ -34,7 +34,7 @@ namespace DDSWebstore.Pages
             var items = _context.Item.Where(t => cookieResults.Contains(t.ID));
             this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
 
-            float totPrice = 0;
+            decimal totPrice = 0;
             foreach (Item i in items){
                 totPrice += i.Price;
             }
@@ -44,7 +44,7 @@ namespace DDSWebstore.Pages
                 City = city,
                 State = state,
                 Zipcode = zip,
-                Price = (float) Math.Round(totPrice,2)
+                Price = (decimal) Math.Round(totPrice,2)
             };
             _context.Order.Add(Order);
             foreach (Item i in items){

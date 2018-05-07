@@ -9,7 +9,7 @@
 			
             <div class="col-md-8">
 				@{
-				 double sum = 0.0;
+				 decimal sum = 0.0m;
 
 				if(@Model.Item.LongCount() == 0){
 				<div class="emptyCart">
@@ -28,6 +28,7 @@
 					<tbody>
 			@foreach(var item in Model.Item) {
 				sum += item.Price;
+				
 					<tr>
 						<td>
 							<div class="cart-image">
@@ -70,7 +71,8 @@
 							padding-bottom:1em;
 							padding-top:2em;
 							color:dodgerblue">
-					Total : $@sum 
+				   @{sum = (decimal) Math.Round(sum,2);}
+					Total : $@sum
 				</div>
             	<div style="padding-left:5px; padding-top:5px;" id="paypal-button-container"></div>
 			</div>
