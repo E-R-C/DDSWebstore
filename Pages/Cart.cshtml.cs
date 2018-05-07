@@ -39,7 +39,7 @@ namespace DDSWebstore.Pages
                 var  items = _context.Item.Where(t => cookieResults.Contains(t.ID));
                 // var items = _context.Item.Join(cookieResults, up => up.ID, id => id, (up, id) => up);
                 
-                Item = await items.ToListAsync();
+                Item = await items.Include(s => s.Images).ToListAsync();
             }else{
                 Item = new List<Item>();
             }

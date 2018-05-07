@@ -154,7 +154,13 @@
                 <div class="item col-xs-12 col-sm-6 col-md-4" >
                    <div class="thumbnail_parent">
                     <div class="thumbnail">
-                        <img class="bounding-box item-image" p-price="@item.Price" p-desc="@item.Description" p-id="@item.ID" p-title="@item.Name" p-image="@item.Images[0].ImageURL"  style="background-image: url(@item.Images[0].ImageURL)" alt="" />
+                        <img class="bounding-box item-image" 
+                             p-price="@item.Price" 
+                             p-desc="@item.Description" 
+                             p-id="@item.ID" p-title="@item.Name" 
+                             p-image="@item.Images[0].ImageURL"  
+                             style="background-image: url(@item.Images[0].ImageURL)"
+                             alt="" />
                         @foreach (var image in item.Images)
                          {
                              <p class="urls">@Html.DisplayFor(modelItem => image.ImageURL)</p>
@@ -184,8 +190,6 @@
      
           </div>
         </div>
-
-        <p>@ViewBag.message</p>
     </div>
         <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
         </div> -->

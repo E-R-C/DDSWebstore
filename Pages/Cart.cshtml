@@ -20,8 +20,8 @@
 					<table style="width:100%" id="cartTable">
 					<thead>
 					<tr>
-						<th>Name</th>
-						<th>Image</th>
+						<th>Item</th>
+						<th>Description</th>
 						<th>Price</th> 
 					</tr>
 					</thead>
@@ -29,16 +29,33 @@
 			@foreach(var item in Model.Item) {
 				sum += item.Price;
 					<tr>
-						<td>@Html.DisplayFor(modelItem => item.Name)</td>
+						<td>
+							<div class="cart-image">
+								<img class="img-rounded" style="background-image:url(@item.Images[0].ImageURL)"/>
+							</div>
+						</td>
+						<td>@Html.DisplayFor(modelItem => item.Description)</td>
 						<td>@Html.DisplayFor(modelItem => item.Price)</td> 
-						<td><input type="button" value="delete" onclick="deleteItem(this, @item.ID)"></td>
+						<td><input type="button" value="delete" onclick="deleteItem(this, @item.ID);sum= @sum - @item.Price" style="color:orangered"></td>
 					</tr>
 				}
 
 			</tbody>
 			</table>
-			<div>
-			<input type="button" value="clear cart" onclick="clearCart()">
+
+			<div class="container clear-cart-container">
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<input type="button" value="clear cart" onclick="clearCart()" class="clear-cart-button">
+					</div>
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+					</div>
+
+				</div>
 			</div>
 				}
         
@@ -47,6 +64,14 @@
 		
             </div>
 			<div class="col-md-4">
+				<div style="display:block;
+				            font-size:3em;
+							font-weight:bold;
+							padding-bottom:1em;
+							padding-top:2em;
+							color:dodgerblue">
+					Total : $@sum 
+				</div>
             	<div style="padding-left:5px; padding-top:5px;" id="paypal-button-container"></div>
 			</div>
 		</div>
@@ -112,4 +137,4 @@
         }, '#paypal-button-container');
 
     </script>
-</div>
+		</div>
