@@ -173,8 +173,23 @@ li p.navbar-btn {
 }
 .feat-items {
     font-family: 'Bitter', serif;
-    font-size: 5vh;
+    font-size: 4vh;
 }
+
+#feat-items-block {
+    padding:1em;
+    padding-right:15px;
+    padding-left:15px;
+    margin-bottom:1em;
+    margin-left:1em;
+    margin-right:1em;
+    
+    
+    border-left: solid thin rgb(180, 140, 140);
+    border-right: solid thin rgb(180, 140, 140);
+
+}
+
 .nav.navbar-nav li a{
     font-family: 'Assistant', sans-serif;
     font-size: 1.6em;
