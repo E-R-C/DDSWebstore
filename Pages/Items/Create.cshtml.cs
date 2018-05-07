@@ -68,11 +68,13 @@ namespace DDSWebstore.Pages.Items
                     f.CopyTo(stream);
                     stream.Close();
                     var filePath2 = Path.Combine(Path.Combine(uploadFolder, newDir), fileName);
+
                     images.Add(new Image{ImageURL=filePath2});
                 }
             }
             Item.Tags = standardizeTags(Item.Tags);
             _context.Item.Add(Item);
+            Item.Price = (decimal) Item.Price;
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
                 _context.Image.Add(i);

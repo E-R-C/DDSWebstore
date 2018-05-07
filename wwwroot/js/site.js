@@ -310,7 +310,7 @@ $(document).ready(function () {
     var modal = $('#myModal');
 
     $('.bounding-box.item-image').on('click', function () {
-        price = $(this).attr('p-price');
+        price = Number.parseFloat($(this).attr('p-price')).toFixed(2);
         productTitle = $(this).attr('p-title');
         productDesc = $(this).attr('p-desc');
         id = $(this).attr('p-id');
@@ -326,7 +326,7 @@ $(document).ready(function () {
         modalContent = modal.find('.modal-content');
         modalContent.find('.modal-image').attr('style', img_display);
         //modalContent.find('.modal-image').attr('src', img);
-        modalContent.find('.modal-item-price').text(price);
+        modalContent.find('.modal-item-price').text("$" + price);
         modalContent.find('.modal-item-title').text(productTitle);
         modalContent.find('.modal-item-desc').text(productDesc);
         modalContent.find('.modal-item-id').text(id);

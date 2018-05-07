@@ -12,7 +12,7 @@ namespace DDSWebstore.Pages
 {
     public class CartModel : PageModel{
         private readonly DDSWebstore.Models.MyDBContext _context;
-        public List<int> cookieResults;
+        public List<decimal> cookieResults;
         public static string ddsCookie;
 
         public CartModel(DDSWebstore.Models.MyDBContext context)
@@ -52,7 +52,7 @@ namespace DDSWebstore.Pages
             Console.WriteLine(" INSIDE ASYNC TASK POST");
             var items = _context.Item.Where(t => cookieResults.Contains(t.ID));
             
-            float totPrice = 0;
+            decimal totPrice = 0m;
             foreach (Item i in items){
                 totPrice += i.Price;
             }
@@ -62,7 +62,7 @@ namespace DDSWebstore.Pages
                 City = city,
                 State = state,
                 Zipcode = zip,
-                Price = (float) Math.Round(totPrice,2)
+                Price =  (decimal) Math.Round(totPrice,2)
             };
             _context.Order.Add(order);
             foreach (Item i in items){
@@ -72,14 +72,14 @@ namespace DDSWebstore.Pages
             await _context.SaveChangesAsync();
             return RedirectToPage("./OrderConfirmation");
          }
-        private List<int> parseCookieResults(string results){
+        private List<decimal> parseCookieResults(string results){
             results = results.Trim().Trim(']').Trim('[');
             // results = results.Substring(1, results.Length - 2);
             Console.WriteLine("hshshhhsh: " + results + " prev was string");
             string[] nums = results.Split(",");
             Console.Write("NUms: " + nums);
 
-            List<int> toReturn = new List<int>();
+            List<decimal> toReturn = new List<decimal>();
             foreach ( string c in nums) {
                 if(c.Length > 0){
                     toReturn.Add(int.Parse(c));
