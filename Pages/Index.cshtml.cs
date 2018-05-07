@@ -37,13 +37,16 @@ namespace DDSWebstore.Pages
             
             HashSet<String> tags = new HashSet<String>();
             foreach (var i in _context.Item) {
-                string[] splitTags = i.Tags.Split(',');
-                foreach (string tag in splitTags) {
-                    tags.Add(tag);
+                if (i.Tags != "") {
+                    string[] splitTags = i.Tags.Split(',');
+                    foreach (string tag in splitTags) {
+                        tags.Add(tag);
+                    }
                 }
             }
             List<string> sorted = tags.ToList();
             sorted.Sort();
+            Console.WriteLine(sorted.ToString());
 
 
             Tags = sorted;

@@ -71,11 +71,14 @@ namespace DDSWebstore.Pages.Items
                     images.Add(new Image{ImageURL=filePath2});
                 }
             }
+            Item.Tags = standardizeTags(Item.Tags);
             _context.Item.Add(Item);
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
                 _context.Image.Add(i);
             }
+
+        
             
             
             await _context.SaveChangesAsync();
@@ -84,18 +87,21 @@ namespace DDSWebstore.Pages.Items
         }
 
         public string standardizeTags(string tags) {
-            string[] splitTags = tags.Split(',');
-            StringBuilder toReturn = new StringBuilder();
-            for (int i = 0; i < splitTags.Length; i++) {
-                splitTags[i] = splitTags[i].Trim();
-                if (splitTags[i].Length == 1) {
-                    toReturn.Append(splitTags[i].ToString().ToUpper() + ",");
-                } else {
-                    toReturn.Append(splitTags[i].First().ToString().ToUpper() + splitTags[i].Substring(1) + ",");
+            if (tags != null) {
+                string[] splitTags = tags.Split(',');
+                StringBuilder toReturn = new StringBuilder();
+                for (int i = 0; i < splitTags.Length; i++) {
+                    splitTags[i] = splitTags[i].Trim();
+                    if (splitTags[i].Length == 1) {
+                        toReturn.Append(splitTags[i].ToString().ToUpper() + ",");
+                    } else {
+                        toReturn.Append(splitTags[i].First().ToString().ToUpper() + splitTags[i].Substring(1) + ",");
+                    }
+                    System.Console.WriteLine(toReturn.ToString());
                 }
-                System.Console.WriteLine(splitTags[i]);
+                return toReturn.ToString().Substring(0,toReturn.ToString().Length - 1);
             }
-            return toReturn.ToString().Substring(0,toReturn.ToString().Length - 1);
+            return "";
             
         }
     }
