@@ -386,10 +386,17 @@ $(document).ready(function () {
     $(".selectable").selectable({
         selected: function () {
             var string = "";
-            $(".selectable img").each(function (index) {
+            $(".selectable .editImg").each(function (index) {
                 if ($(this).hasClass("ui-selected")) {
                     string += index + ",";
                     $("#index").val(string);
+                }
+            });
+
+            $(".selectable .mainImg").each(function (index) {
+                if ($(this).hasClass("ui-selected")) {
+                    $(this).siblings().removeClass("ui-selected");
+                    $("#mainIndex").val(index);
                 }
             });
         }

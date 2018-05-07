@@ -784,6 +784,11 @@ div.row.list-group {
     max-width: 150px;
 }
 
+.mainImg {
+    max-height: 150px;
+    max-width: 150px;
+}
+
 
 .selectable .ui-selecting {
     border: 2px dashed #ff0000;

@@ -38,6 +38,9 @@ namespace DDSWebstore.Pages.Items
         [BindProperty]
         public string IndexText {get; set;}
 
+        [BindProperty]
+        public string mainImageIndex {get; set;}
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -66,14 +69,14 @@ namespace DDSWebstore.Pages.Items
                 return Page();
             }
 
-            var itemToUpdate = await _context.Item.FindAsync(id);
-            
-            urlArray = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, 
-                Path.Combine("uploads", "ImageFolder_" + itemToUpdate.FID)));
+            //var itemToUpdate = await _context.Item.FindAsync(id);
+            _context.Attach(Item).State = EntityState.Modified;
             
             // Delete Image
             if (IndexText != null) 
             {
+                urlArray = Directory.GetFiles(Path.Combine(_hostingEnvironment.WebRootPath, 
+                    Path.Combine("uploads", "ImageFolder_" + Item.FID)));
                 List<string> indexList = IndexText.Split(",").ToList();
                 DbSet<Image> DbSetCopy = _context.Image;
                 if (indexList.Count != 0)
@@ -101,7 +104,7 @@ namespace DDSWebstore.Pages.Items
             if (this.AddImage != null) 
             {
                 String uploadFolder = "uploads";
-                String newDir = "ImageFolder_" + itemToUpdate.FID;
+                String newDir = "ImageFolder_" + Item.FID;
                 var uploadPath = Path.Combine(_hostingEnvironment.WebRootPath, uploadFolder);
                 var newDirPath = Path.Combine(uploadPath, newDir);
                 foreach (IFormFile f in AddImage) {
@@ -115,11 +118,14 @@ namespace DDSWebstore.Pages.Items
                     images.Add(new Image{ImageURL=filePath2});
                 }
             }
+
+
             foreach(Image i in images) {
                 i.ItemID = Item.ID;
                 _context.Image.Add(i);
             }
 
+            
             try
             {
                 await _context.SaveChangesAsync();
