@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DDSWebstore.Models;
+using Microsoft.AspNetCore.Http;
+
 
 namespace DDSWebstore.Pages
 {
@@ -20,7 +22,8 @@ namespace DDSWebstore.Pages
 
         public List<int> cookieResults;
         public static string ddsCookie;
-        public IList<Item> Items { get;set; }
+
+        public IList<Item> Item { get;set; }
 
         public IList<BoughtItem> BoughtItem {get; set;}
         public Order Order;
@@ -29,11 +32,12 @@ namespace DDSWebstore.Pages
          string city, string state, int zip)
         {
 
-            ddsCookie = Request.Cookies["ddsCookie"];
-            Console.WriteLine(" INSIDE ASYNC TASK POST");
-            var items = _context.Item.Where(t => cookieResults.Contains(t.ID));
+            ddsCookie = Request.Cookies["ddsCookie"];            
             this.cookieResults = this.parseCookieResults(CartModel.ddsCookie);//ddsCookie.Split(',').ToList();
-
+            var items = _context.Item.Where(t => cookieResults.Contains(t.ID));
+            Item = await items.ToListAsync();
+            // Items = items.ToList();  
+            Console.WriteLine(Item.Count);
             decimal totPrice = 0;
             foreach (Item i in items){
                 totPrice += i.Price;
@@ -51,6 +55,8 @@ namespace DDSWebstore.Pages
                 _context.BoughtItem.Add(convertItem(i,Order.ID));
                 _context.Item.Remove(i);
             }
+            Response.Cookies.Delete("ddsCookie");
+            Response.Cookies.Append("ddsCookie", "[]");
             await _context.SaveChangesAsync();
             return Page();
         }
@@ -66,6 +72,9 @@ namespace DDSWebstore.Pages
             };
         }
         private List<int> parseCookieResults(string results){
+            if (results == null){
+                return new List<int>();
+            }
             results = results.Trim().Trim(']').Trim('[');
             // results = results.Substring(1, results.Length - 2);
             // Console.WriteLine("hshshhhsh: " + results + " prev was string");

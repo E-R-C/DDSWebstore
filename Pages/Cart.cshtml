@@ -86,7 +86,7 @@
             env: 'sandbox', 
 
 			style: {
-				size: 'small', 
+				size: 'large', 
 				color: 'blue', 
 				shape: 'rect', 
 				label: 'pay'
@@ -115,7 +115,7 @@
 			{
                 return actions.payment.execute().then(function() 
 				{
-                    window.alert('Payment Complete!');
+                    <!-- window.alert('Payment Complete!'); -->
 					actions.payment.get().then(
 						function(data) {
 							post('/OrderConfirmation', {

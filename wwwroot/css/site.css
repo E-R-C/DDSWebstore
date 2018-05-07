@@ -1025,7 +1025,7 @@ a {
   }
   .billing-questions {
     margin: 20px auto; 
-    float:right;
+    float:inherit;
   }
   .chatnow {
     margin: 0 auto 15px auto; 
@@ -1054,4 +1054,6 @@ a {
   i {
     padding: 0 15px
   }
-  
+  .dollars:before {
+    content:'$';
+  }

@@ -236,7 +236,7 @@ Array.prototype.unique = function() {
       }
   }
 
-function clearCart(){
+function clearCart() {
     $("#cartTable > tbody").empty();
     cookiesValue = [];
     Cookies.set("ddsCookie", cookiesValue);
@@ -336,13 +336,10 @@ $(document).ready(function () {
 
         //populate image on modal
         $list = modalContent.find('.list-inline');
-        if (urlArray.length > 1) {
-            for (var i = 0; i < urlArray.length; i++) {
-
-                alt_img_display = 'background-image: url(' + urlArray[i] + ')';
-                console.log(urlArray[i]);
-                $list.append('<li class="alt-image"> <img class="bounding-box modal-alt-image" style="background-image: url(' + urlArray[i] + ')"' + ' /></li >');
-            }
+        for (var i = 0; i < urlArray.length; i++) {
+            alt_img_display = 'background-image: url(' + urlArray[i] + ')';
+            console.log(urlArray[i]);
+            $list.append('<li class="alt-image"> <img class="bounding-box modal-alt-image" style="background-image: url(' + urlArray[i] + ')"' + ' /></li >');
         }
 
         modal.css("display", "block");
