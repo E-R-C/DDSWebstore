@@ -5,7 +5,8 @@
 }
 
 <div class="row">
-    <div class="col-md-8 col-sm-12 col-xs-12">
+    
+    <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="jumbotron main" >
             <div class="container text-center"> 
                 <h1>Arkansas Dept. of Disability Resident Market</h1>   
@@ -36,14 +37,14 @@
 <div class="container" style="width:85%">
 
 <div class="row search">
-    <div class="col-xs-4">
+    <!-- <div class="col-xs-4">
         <h1 class="items"> <b>Items</b> </h1>
-    </div>
-    <div class="col-xs-8">
+    </div> -->
+    <div class="col-xs-12">
             <div class="search-container">
                 
                 <form class="navbar-form pull-right">
-                    <div class="input-group">
+                    <div class="input-group pull-right">
                             <input class="form-control" type="text" name="search" placeholder="Search">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default">
@@ -82,25 +83,14 @@
             <table class="categories" style="width:100%;">
                 <tbody>
                     <div id="categories-collapse">
-                        <tr>
-                            <td>
-                                <input type="checkbox" value="Category 1"/>
-                                <label for="subscribeNews">Candles</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            
-                            <input type="checkbox" value="Category 2"/>
-                            <label for="subscribeNews">Snowglobes</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <input type="checkbox" value="Category 3"/>
-                            <label for="subscribeNews">Rugs</label>
-                            </td>
-                        </tr>
+                        @foreach (var tag in Model.Tags) {
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value=@tag>
+                                    <label for="category-label">@tag</label>
+                                </td>
+                            </tr>
+                        }
                     </div>
                 </tbody>
             </table>
@@ -151,7 +141,7 @@
         <div id="products" class="row list-group">
             @{var i = 0;}
             @foreach (var item in Model.Item) {
-                <div class="item col-xs-12 col-sm-6 col-md-4" >
+                <div class="item col-xs-12 col-sm-6 col-md-4" style="padding:.5em; padding-bottom:.75em;" >
                    <div class="thumbnail_parent">
                     <div class="thumbnail">
                         <img class="bounding-box item-image" p-price="@item.Price" p-desc="@item.Description" p-id="@item.ID" p-title="@item.Name" p-image="@item.Images[0].ImageURL"  style="background-image: url(@item.Images[0].ImageURL)" alt="" />
@@ -230,23 +220,27 @@
                         <div class="row">
                             <p class="modal-item-desc"></p>
                         </div>
-                        <div class="row">
-                            <a class="btn btn-success modal-cart-button">Add to Cart</a>
-                        </div>
+                        
                         <div class="row">
                             <p class="modal-item-id"></p>
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-bottom:2em;">
-                    <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5">
                         <ul class="list-inline">
                         
                         </ul>
                     </div>
+                    <div class="col-sm-1"></div>
+
                     <div class="col-sm-5">
+                        <a class="btn btn-success modal-cart-button">Add to Cart</a>
 
                     </div>
+                    
+                    
                     
                 </div>
             </div>

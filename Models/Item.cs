@@ -19,6 +19,10 @@ namespace DDSWebstore.Models
     
     [DataType(DataType.Currency)]
     public float Price{get; set;}
+
+    // comma-separated string of 1+ tags
+    public string Tags {get; set;}
+
     
 
     public virtual IList<DDSWebstore.Models.Image> Images { get; set; }

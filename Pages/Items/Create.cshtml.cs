@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
+using System.Text;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Hosting;
 using DDSWebstore.Models;
@@ -76,10 +77,28 @@ namespace DDSWebstore.Pages.Items
                 _context.Image.Add(i);
             }
             
-
+            
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
+
+        public string standardizeTags(string tags) {
+            string[] splitTags = tags.Split(',');
+            StringBuilder toReturn = new StringBuilder();
+            for (int i = 0; i < splitTags.Length; i++) {
+                splitTags[i] = splitTags[i].Trim();
+                if (splitTags[i].Length == 1) {
+                    toReturn.Append(splitTags[i].ToString().ToUpper() + ",");
+                } else {
+                    toReturn.Append(splitTags[i].First().ToString().ToUpper() + splitTags[i].Substring(1) + ",");
+                }
+                System.Console.WriteLine(splitTags[i]);
+            }
+            return toReturn.ToString().Substring(0,toReturn.ToString().Length - 1);
+            
+        }
     }
+
+
 }
