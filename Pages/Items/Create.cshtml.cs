@@ -68,6 +68,7 @@ namespace DDSWebstore.Pages.Items
                     f.CopyTo(stream);
                     stream.Close();
                     var filePath2 = Path.Combine(Path.Combine(uploadFolder, newDir), fileName);
+
                     images.Add(new Image{ImageURL=filePath2});
                 }
             }

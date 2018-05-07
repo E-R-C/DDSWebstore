@@ -1,4 +1,5 @@
 using System;
+using System.Web;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +54,7 @@ namespace DDSWebstore.Pages.Items
                 Path.Combine("uploads", "ImageFolder_" + Item.FID)));
             for (int i = 0; i < urlArray.Length; i++) 
             {
-                urlArray[i] = urlArray[i].Replace(_hostingEnvironment.WebRootPath, "..\\");
+                urlArray[i] = urlArray[i].Replace(_hostingEnvironment.WebRootPath, "");
             }
             return Page();
         }
@@ -79,13 +80,11 @@ namespace DDSWebstore.Pages.Items
                 {
                     foreach (var entity in DbSetCopy)
                     {
-                        string[] entityUrlList = entity.ImageURL.Split("\\");
+
                         for (int i = 0; i < indexList.Count - 1; i++)
                         {   
                             string url = urlArray[int.Parse(indexList[i])];
-                            string[] fileName = url.Split("\\");
-                            Console.WriteLine(url);
-                            if (entityUrlList[entityUrlList.Length - 1].Equals(fileName[fileName.Length - 1]))
+                            if (Path.GetFileName(entity.ImageURL).Equals(Path.GetFileName(url)))
                             {
                                _context.Image.Remove(entity);
                                FileInfo f = new FileInfo(@url);
