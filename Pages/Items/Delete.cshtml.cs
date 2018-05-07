@@ -56,13 +56,17 @@ namespace DDSWebstore.Pages.Items
                 // var fileName = this.Item.ImageName;
                 // var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
                 // var filePath = Path.Combine(uploads, fileName);
+                String uploadFolder = "uploads";
+                String newDir = "ImageFolder_" + Item.FID;
+                var uploadPath = Path.Combine(_hostingEnvironment.WebRootPath, uploadFolder);
+                var newDirPath = Path.Combine(uploadPath, newDir);
                 _context.Item.Remove(Item);
-                foreach(Image i in Item.Images){
-                    if (System.IO.File.Exists(i.ImageURL))
-                    {
-                        System.IO.File.Delete(i.ImageURL);
-                    }
+                if (Directory.Exists(newDirPath))
+                {
+                    Directory.Delete(newDirPath, true);
                 }
+                
+
                 await _context.SaveChangesAsync();
 
 
