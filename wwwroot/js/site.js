@@ -302,6 +302,9 @@ $(document).ready(function () {
     $("input[type='checkbox']").change(function (e) {
         if ($(this).is(":checked")) {
             $(this).parent().addClass("highlight_row");
+            post('/', {
+                search: $(this).attr('value')
+            });
         } else {
             $(this).parent().removeClass("highlight_row");
         }

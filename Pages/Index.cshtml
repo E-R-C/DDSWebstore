@@ -17,29 +17,69 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4 hidden-sm hidden-xs">
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="jumbotron small-top">
-
-                </div>
+            <div class="col-lg-4 col-md-6 col-sm-7 col-xs-12">
+                <p class="feat-items" >Featured Items</p>
             </div>
+            <div class="col-lg-8 col-md-6 col-sm-5 hidden-xs underline"> </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-                <div class="jumbotron small-bottom">
+            @{
+               
+                string[] featured = new string[]{Model.Item.get(0),Model.Item.get(4)}
+                foreach (var item in @featured) {
+                   <div class="item col-xs-12 col-sm-6 col-md-4" style="padding:.5em; padding-bottom:.75em;" >
+                    <div class="thumbnail_parent">
+                        <div class="thumbnail">
+                            <img class="bounding-box item-image" 
+                                p-price=@item.Price
+                                p-desc="@item.Description" 
+                                p-id="@item.ID" p-title="@item.Name" 
+                                p-image="@item.Images[0].ImageURL"  
+                                style="background-image: url(@item.Images[0].ImageURL)"
+                                alt="" />
+                            @foreach (var image in item.Images)
+                            {
+                                <p class="urls">@Html.DisplayFor(modelItem => image.ImageURL)</p>
+                            }
+                        </div>
+                        <div class="caption">
+                            <h4 class="product-title">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </h4>
+                            <p class="product-desc">@Html.DisplayFor(modelItem => item.Description)</p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <p class="price">
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </p>
+                                    <p class="id">
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                
+                    </div>          
+                }
+                
 
-                </div>
-            </div>
+
+            }
         </div>
     </div>
+    <div class="col-xs-2"></div>
+
 </div>
 <div class="container" style="width:85%">
 
 <div class="row search">
-    <!-- <div class="col-xs-4">
-        <h1 class="items"> <b>Items</b> </h1>
-    </div> -->
+   
     <div class="col-xs-12">
             <div class="search-container">
                 
@@ -83,12 +123,24 @@
             <table class="categories" style="width:100%;">
                 <tbody>
                     <div id="categories-collapse">
+                      
                         @foreach (var tag in Model.Tags) {
                             <tr>
-                                <td>
-                                    <input type="checkbox" value=@tag>
-                                    <label for="category-label">@tag</label>
+                            @{if (@tag == Model.Search) {
+                                <td class="highlight_row">
+                                    
+                                        <input type="checkbox" value=@tag>
+                                        <label for="category-label">@tag</label>
+                                    
                                 </td>
+                            } else {
+                                <td>
+                                    
+                                        <input type="checkbox" value=@tag>
+                                        <label for="category-label">@tag</label>
+                                    
+                                </td>
+                            }}
                             </tr>
                         }
                     </div>
@@ -100,43 +152,8 @@
      </div>
      
      
-        
-        <!-- <div class="col-sm-3" style="padding:0;">
-            
-            <table class="categories" style="width:100%;">
-                <tbody>
-                <tr>
-                    <td>
-                        <input type="checkbox" value="Category 1"/>
-                        <label for="subscribeNews">Candles</label>
-                    </td>
-                </tr>
-               <tr>
-                    <td>
-                    
-                    <input type="checkbox" value="Category 2"/>
-                    <label for="subscribeNews">Snowglobes</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <input type="checkbox" value="Category 3"/>
-                    <label for="subscribeNews">Rugs</label>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div> -->
     <div class="col-sm-9">
-        <!-- <div class="well well-sm">
-            <strong>Display</strong>
-            <div class="btn-group">
-                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-                </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                    class="glyphicon glyphicon-th"></span>Grid</a>
-            </div>
-        </div> -->
+     
 
         <div id="products" class="row list-group">
             @{var i = 0;}
@@ -181,9 +198,7 @@
           </div>
         </div>
     </div>
-        <!-- <div class="col-lg-2 col-md-2 col-sm-3" style="padding-left:10em">
-        </div> -->
-        
+       
      
     </div>
 </div>
@@ -192,10 +207,6 @@
     <div class="modal-content">
         <!--Header/Title for Modal-->
         <span class="close">&times;</span>
-
-        <!-- <div class="jumbotron">
-            <header class="modal-item-title"></header>
-        </div> -->
         <!--Body of Modal-->
         <div class="please" style="max-height:100%;">
             <div class="container-fluid modal-subcontent">
