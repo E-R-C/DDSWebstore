@@ -6,41 +6,53 @@
 <div>
 
 		<div class="row" style="margin-top:3em;">
+			
+            <div class="col-md-8">
+				@{
+				 double sum = 0.0;
+
+				if(@Model.Item.LongCount() == 0){
+				<div class="emptyCart">
+					<p>  Your cart is empty !</p>
+				</div>
+				}
+				else {
+					<table style="width:100%" id="cartTable">
+					<thead>
+					<tr>
+						<th>Name</th>
+						<th>Image</th>
+						<th>Price</th> 
+					</tr>
+					</thead>
+					<tbody>
+			@foreach(var item in Model.Item) {
+				sum += item.Price;
+					<tr>
+						<td>@Html.DisplayFor(modelItem => item.Name)</td>
+						<td>@Html.DisplayFor(modelItem => item.Price)</td> 
+						<td><input type="button" value="delete" onclick="deleteItem(this, @item.ID)"></td>
+					</tr>
+				}
+
+			</tbody>
+			</table>
+			<div>
+			<input type="button" value="clear cart" onclick="clearCart()">
+			</div>
+				}
+        
+				}
+		<!-- $("#tableId > tbody").empty(); -->
+		
+            </div>
 			<div class="col-md-4">
-				<form>
-				Recipient:<br>
-				<input type="text" name="address"><br>
-				Shipping Address:<br>
-				<input type="text" name="address"><br>
-				City:<br>
-				<input type="text" name="city"><br>
-				State:<br>
-				<input type="text" name="state"><br>
-				Zip Code:<br>
-				<input type="text" name="zip"><br>
-				
-				<!-- <input type="input" class="form-control input-sm" placeholder="Extra Donation?"> -->
-				</form>
             	<div style="padding-left:5px; padding-top:5px;" id="paypal-button-container"></div>
 			</div>
-            <div class="col-md-8">
-                <table style="width:100%">
-		<tr>
-			<th>Name</th>
-			<th>Price</th> 
-			<th>Number of Items</th>
-		</tr>
-			@foreach(var item in Model.Item) {
-						<tr>
-							<td>@Html.DisplayFor(modelItem => item.Name)</td>
-							<td>@Html.DisplayFor(modelItem => item.Price)</td> 
-							<td>@Html.DisplayFor(modelItem => item.Quantity)</td>
-						</tr>
-			}
-		</table>
-            </div>
 		</div>
+		@Html.AntiForgeryToken()
 	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
     <script>
         paypal.Button.render({
 
@@ -61,34 +73,33 @@
             commit: true,
 
             payment: function(data, actions) {
-
                 return actions.payment.create({
                     payment: {
                         transactions: [
                             {
-                                amount: { total: '0.01', currency: 'USD' }
+                                amount: { total: "@Math.Round(sum,2)", currency: 'USD' }
                             }
                         ]
                     }
                 });
             },
 
-            onAuthorize: function(data, actions) {
-
-                return actions.payment.execute().then(function() {
+            onAuthorize: function(pdata, actions) 
+			{
+                return actions.payment.execute().then(function() 
+				{
                     window.alert('Payment Complete!');
-                });
-
-				return actions.payment.get().then(function(data) {
-
-					var shipping = data.payer.payer_info.shipping_address;
-
-                document.querySelector('#recipient').innerText = shipping.recipient_name;
-                document.querySelector('#address').innerText     = shipping.line1;
-                document.querySelector('#city').innerText      = shipping.city;
-                document.querySelector('#state').innerText     = shipping.state;
-                document.querySelector('#zip').innerText      = shipping.postal_code;
-				});
+					actions.payment.get().then(
+						function(data) {
+							post('/OrderConfirmation', {
+							name: data.payer.payer_info.shipping_address.recipient_name, 
+							address: data.payer.payer_info.shipping_address.line1,
+							city: data.payer.payer_info.shipping_address.city,
+							state: data.payer.payer_info.shipping_address.state,
+							zip: data.payer.payer_info.shipping_address.postal_code,
+							}
+							)});
+						});	
             }, 
 
 			onCancel: function(data, actions) {
@@ -96,10 +107,11 @@
 			},
 
 			onError: function(data, actions) {
+				console.log(data);
 				return window.alert('Payment failed. Refresh page and try again.');
 			},
 
         }, '#paypal-button-container');
 
     </script>
-		</div>
+</div>

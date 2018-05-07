@@ -167,25 +167,107 @@
 }));
 
 
-// function setCookies(){
-//     if(cookiesValue == []){
-//         Cookies.set('ddsCookie', cookiesValue)
-//     }
-// }
-
-var cookiesValueDefined = false;
-
 function defineCookiesValues(){
-    if(!cookiesValueDefined){
+    cookiesValue1 = Cookies.get("ddsCookie");
+    cookiesValue = parseCookieResults(cookiesValue1);
+    if(cookiesValue == null){
         cookiesValue = [];
-        cookiesValueDefined = true;
     }
 }
 
+function parseCookieResults(l){
+    console.log(l);
+    //return JSON.parse(l);
+}
+
+function without(array, what){
+    return array.filter(function(element){ 
+        return element !== what;
+    });
+}
+
+function deleteItem(row, id){
+    var i = row.parentNode.parentNode.rowIndex;
+    document.getElementById("cartTable").deleteRow(i);
+    var temp = Cookies.get("ddsCookie");
+    cookiesValue = parseCookieResults(temp);
+    var index = cookiesValue.indexOf(id);
+    console.log("cookiesValue before removing: " + cookiesValue);
+    console.log("this is my index: " + index);
+    console.log("this is the id to remove: " + id);
+    cookiesValue = without(cookiesValue, id);
+    // if (index > -1) {
+    //     cookiesValue.splice(index, 1);
+    // }
+    console.log("cookiesValue after removing: " + cookiesValue);
+    Cookies.set("ddsCookie", cookiesValue);
+    setBadge();
+
+}
+
+Array.prototype.unique = function() {
+    return this.filter(function (value, index, self) { 
+      return self.indexOf(value) === index;
+    });
+  }
+
+//   function countCookies() {
+//       if (Cookies.get("ddsCookie") == null) {
+//           return 0;
+//       }
+//       var cookie = Cookies.get("ddsCookie");
+//       var c = parseCookieResults(cookie);
+//       return c.unique().length;
+//   }
+
+//   function setBadge() {
+//       var b = document.getElementById("target");
+//       var c = countCookies();
+//       if (c == 0) {
+//           b.style.visibility = 'hidden';
+//       } else {
+//           b.style.visibility = 'visible';
+//           b.innerHTML = parseInt(c);
+//       }
+//   }
+
+function clearCart(){
+    $("#cartTable > tbody").empty();
+    cookiesValue = [];
+    Cookies.set("ddsCookie", cookiesValue);
+    //setBadge();
+}
+
+
+function incrementValue() {
+    var x = document.getElementById("target");
+    x.style.visibility = 'visible';
+    // if (x.innerHTML == 0) {
+    //     x.style.visability = 'visible';
+    // }
+  x.innerHTML = parseInt(x.innerHTML)+1;
+}
 
 $(document).ready(function () {
     defineCookiesValues();
+    //setBadge();
+    // cookiesValue = [];
+    // Cookies.set("ddsCookie", cookiesValue);
     var $windowSize = 5000;
+
+    // function triggerPulse() {
+    //     var t = document.getElementById("targetEl");
+    //     t.classList.add("set-ripple");
+        
+    //     setTimeout(function() {
+    //     t.classList.remove('set-ripple');
+    //   }, 600);
+        
+    //     setTimeout(function() {
+    //         t.classList.add("add-new-color");
+    //   }, 100);
+        
+    // };
 
     if ($(window).width() < 782) {
         $('#categories-collapse').collapse("hide");
@@ -204,6 +286,7 @@ $(document).ready(function () {
 
     console.log("javascript loaded");
     $('.categories tr').click(function (event) {
+        console.log("clicked");
         if (event.target.type !== 'checkbox') {
             $(':checkbox', this).trigger('click');
         }
@@ -219,13 +302,14 @@ $(document).ready(function () {
 
     var modal = $('#myModal');
 
-    $('.item-image').on('click', function () {
-        price = $(this).parent().children('.caption').children('.row').find('.price').text(); //.parent().prev().find('.price').text();
-        productTitle = $(this).parent().children('.caption').children('.product-title').text(); //.$(this).parent().parent().prev().text();
-        productDesc = $(this).parent().children('.caption').children('.product-desc').text();
-        id = $(this).parent().children('.caption').children('.row').find('.id').text()
+    $('.bounding-box.item-image').on('click', function () {
+        price = $(this).attr('p-price');
+        productTitle = $(this).attr('p-title');
+        productDesc = $(this).attr('p-desc');
+        id = $(this).attr('p-id');
         //console.log($(this).parent().parent().prev());
-        img = $(this).attr('src'); //parent().parent().parent().prev().attr('src');
+        img = $(this).attr('p-image'); //parent().parent().parent().prev().attr('src');
+        img_display = $(this).attr('style')
         urlArray = new Array();
         $(this).parent().children('.urls').each(function () {
             url = $(this).text();
@@ -233,7 +317,8 @@ $(document).ready(function () {
         })
 
         modalContent = modal.find('.modal-content');
-        modalContent.find('.modal-image').attr('src', img);
+        modalContent.find('.modal-image').attr('style', img_display);
+        //modalContent.find('.modal-image').attr('src', img);
         modalContent.find('.modal-item-price').text(price);
         modalContent.find('.modal-item-title').text(productTitle);
         modalContent.find('.modal-item-desc').text(productDesc);
@@ -242,30 +327,25 @@ $(document).ready(function () {
         //populate image on modal
         $list = modalContent.find('.list-inline');
         for (var i = 0; i < urlArray.length; i++) {
-            $list.append('<li class="alt-image"> <img src = "' + urlArray[i] + '" width = "75" height = "75" /></li >');
+            alt_img_display = 'background-image: url(' + urlArray[i] + ')';
+            console.log(urlArray[i]);
+            $list.append('<li class="alt-image"> <img class="bounding-box modal-alt-image" style="background-image: url(' + urlArray[i] + ')"' + ' /></li >');
         }
 
         modal.css("display", "block");
     });
 
     $('.modal-cart-button').on('click', () => {
-        console.log("here I am what?????");
+        // triggerPulse;
+        
         var $id = parseInt($.trim($(".modal-item-id").text()));
-        // Cookies.set('ddsCookie', cookiesValue);
-        // var expiration_date = new Date();
-        // var cookie_string = '';
-        // expiration_date.setFullYear(expiration_date.getFullYear() + 1);
         cookiesValue.push($id);
         Cookies.set('ddsCookie', cookiesValue);
+        setBadge();
         console.log("ddsCookie set successfully");
-
+        // console.log(parseCookieResults(Cookies.get("ddsCookie")));
+        // console.log(countCookies());
     });
-
-    $('#cart-button').on('click', () => {
-        cookieContents = Cookies.get('ddsCookie');
-        console.log(typeof cookieContents);
-        console.log(cookieContents);
-    })
 
     $('.close').on('click', function () {
         modalContent = modal.find('.modal-content');
@@ -276,8 +356,8 @@ $(document).ready(function () {
 
     $('.list-inline').on('click', '.alt-image', function () {
         console.log("image clicked");
-        img = $(this).children('img').attr('src');
-        modal.find('.modal-content').find('.modal-image').attr('src', img);
+        img_display = $(this).children('img').attr('style');
+        modal.find('.modal-content').find('.modal-image').attr('style', img_display);
     });
 
 
@@ -303,4 +383,27 @@ $(document).ready(function () {
     });
 });
 
+function post(path, params) {
+    method = "GET"; 
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    var securityToken = $('[name=__RequestVerificationToken]').val();
+    console.log("securityToken + " + securityToken );
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+    form.setAttribute("__RequestVerificationToken", securityToken);
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+            form.appendChild(hiddenField);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
 

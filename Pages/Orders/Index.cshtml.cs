@@ -18,14 +18,11 @@ namespace DDSWebstore.Pages.Orders
             _context = context;
         }
 
-        public IList<Order> Order { get; set; }
-
-        public IList<Image> Image { get; set; }
+        public IList<Order> Order { get;set; }
 
         public async Task OnGetAsync()
         {
             Order = await _context.Order.ToListAsync();
-            Image = await _context.Image.ToListAsync();
         }
     }
 }
